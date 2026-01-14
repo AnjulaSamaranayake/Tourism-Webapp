@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import {
@@ -92,7 +94,9 @@ export default function WildlifeToursPage() {
   ]
 
   return (
-    <main className="min-h-screen bg-background">
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-background pt-20">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
@@ -242,7 +246,7 @@ export default function WildlifeToursPage() {
                     {faq.question}
                   </h3>
                   <ChevronDown
-                    className={`h-5 w-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ml-4 ${
+                    className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ml-4 ${
                       expandedFaq === index ? "rotate-180" : ""
                     }`}
                   />
@@ -286,5 +290,7 @@ export default function WildlifeToursPage() {
         </div>
       </section>
     </main>
+      <Footer />
+    </>
   )
 }
