@@ -4,7 +4,7 @@ import { JourneysGallery } from "@/components/journeys-gallery"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { DifferenceSection } from "@/components/difference-section"
 import { PlanningProcess } from "@/components/planning-process"
-import { ContactSection } from "@/components/contact-section"
+import { FAQSection } from "@/components/faq-section"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
@@ -18,7 +18,7 @@ export default function HomePage() {
       <TestimonialsSection />
       <DifferenceSection />
       <PlanningProcess />
-      <ContactSection />
+      <FAQSection />
       <Footer />
     </main>
   )

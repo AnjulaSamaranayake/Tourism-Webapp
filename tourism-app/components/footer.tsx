@@ -41,22 +41,22 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-accent">Resources</h4>
             <ul className="space-y-2 text-sm text-background/80">
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="/#faq" className="hover:text-accent transition-colors">
                   FAQ
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="/share-your-story" className="hover:text-accent transition-colors">
                   Travel Guide
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="/contact" className="hover:text-accent transition-colors">
                   Packing Tips
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="/contact" className="hover:text-accent transition-colors">
                   Terms & Conditions
                 </a>
               </li>

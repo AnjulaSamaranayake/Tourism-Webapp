@@ -18,7 +18,7 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border" suppressHydrationWarning>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="shrink-0">
@@ -28,6 +28,12 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
+            <a
+              href="/"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Home
+            </a>
             <div className="relative group">
               <button className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors">
                 Journeys
@@ -52,6 +58,12 @@ export function Navigation() {
             >
               Share Your Story
             </a>
+            <a
+              href="/contact"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Contact
+            </a>
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-secondary transition-colors">
               Book Consultation
             </Button>
@@ -73,6 +85,12 @@ export function Navigation() {
       {isOpen && (
         <div className="md:hidden bg-background border-t border-border">
           <div className="px-4 py-6 space-y-4">
+            <a
+              href="/"
+              className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Home
+            </a>
             <div>
               <button
                 onClick={() => setJourneyDropdownOpen(!journeyDropdownOpen)}
@@ -104,6 +122,12 @@ export function Navigation() {
               className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Share Your Story
+            </a>
+            <a
+              href="/contact"
+              className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Contact
             </a>
             <Button
               size="lg"

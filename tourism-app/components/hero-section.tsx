@@ -48,12 +48,14 @@ export function HeroSection() {
           </div>
 
           <div className="pt-8">
-            <Button
-              size="lg"
-              className="text-lg px-8 py-6 bg-accent text-foreground hover:bg-secondary hover:text-secondary-foreground transition-all shadow-xl"
-            >
-              Begin Your Journey
-            </Button>
+            <a href="/contact" className="inline-block">
+              <Button
+                size="lg"
+                className="text-lg px-8 py-6 bg-accent text-foreground hover:bg-secondary hover:text-secondary-foreground transition-all shadow-xl"
+              >
+                Begin Your Journey
+              </Button>
+            </a>
           </div>
         </div>
       </div>
