@@ -64,8 +64,11 @@ export function Navigation() {
             >
               Contact
             </a>
+
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-secondary transition-colors">
+              <a href="/contact">
               Book Consultation
+              </a>
             </Button>
           </div>
 

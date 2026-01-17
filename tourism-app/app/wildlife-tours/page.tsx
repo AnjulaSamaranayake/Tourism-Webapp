@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -119,8 +120,12 @@ export default function WildlifeToursPage() {
           <Button
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+            onClick={() => {
+              const element = document.getElementById('signature-expeditions')
+              element?.scrollIntoView({ behavior: 'smooth' })
+            }}
           >
-            Explore Our Wildlife Journeys
+            Explore our Wildlife journey
           </Button>
         </div>
       </section>
@@ -147,7 +152,7 @@ export default function WildlifeToursPage() {
       </section>
 
       {/* Featured Journeys Section */}
-      <section className="py-24 bg-background">
+      <section id="signature-expeditions" className="py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
@@ -192,9 +197,11 @@ export default function WildlifeToursPage() {
                     {journey.description}
                   </p>
 
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-                    Explore This Journey
-                  </Button>
+                  <Link href={journey.title === "The Leopard's Trail" ? "/journeys/leopards-trail" : "/journeys/elephant-gathering"}>
+                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+                      Explore This Journey
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             ))}
@@ -281,12 +288,14 @@ export default function WildlifeToursPage() {
             Contact our travel curators to discuss your dream wildlife itinerary, preferred travel
             dates, and any special interests like birding or photography.
           </p>
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
-          >
-            Start Planning Your Safari
-          </Button>
+          <Link href="/contact">
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+            >
+              Start Planning Your Safari
+            </Button>
+          </Link>
         </div>
       </section>
     </main>

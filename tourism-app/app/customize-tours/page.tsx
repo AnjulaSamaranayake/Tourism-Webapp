@@ -5,7 +5,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ChevronDown, Wand2, Users, Lightbulb, Mail, Heart, Compass } from "lucide-react"
+import { ChevronDown, Wand2, Users, Lightbulb, Mail, Heart, Compass, Sparkles, Globe, Leaf, Camera, Plane } from "lucide-react"
 
 export default function CustomizeToursPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
@@ -170,8 +170,31 @@ export default function CustomizeToursPage() {
       </section>
 
       {/* Consultation Form Section */}
-      <section id="consultation-form" className="py-24 bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="consultation-form" className="relative py-24 bg-muted overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-5 opacity-10">
+          <Sparkles className="h-16 w-16 text-primary" />
+        </div>
+        <div className="absolute bottom-20 right-5 opacity-12">
+          <Compass className="h-14 w-14 text-secondary" />
+        </div>
+        <div className="absolute top-1/3 left-1/4 opacity-8">
+          <Globe className="h-12 w-12 text-primary rotate-90" />
+        </div>
+        <div className="absolute top-1/2 right-1/3 opacity-9">
+          <Heart className="h-10 w-10 text-secondary" />
+        </div>
+        <div className="absolute bottom-1/3 left-1/2 opacity-7">
+          <Leaf className="h-12 w-12 text-primary" />
+        </div>
+        <div className="absolute top-2/3 right-1/4 opacity-8">
+          <Camera className="h-14 w-14 text-primary" />
+        </div>
+        <div className="absolute bottom-1/4 right-20 opacity-10">
+          <Plane className="h-16 w-16 text-secondary" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
@@ -294,8 +317,22 @@ export default function CustomizeToursPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 bg-background overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-10 right-10 opacity-10">
+          <Wand2 className="h-16 w-16 text-primary" />
+        </div>
+        <div className="absolute bottom-20 left-10 opacity-12">
+          <Sparkles className="h-14 w-14 text-secondary" />
+        </div>
+        <div className="absolute top-1/2 right-1/4 opacity-8">
+          <Compass className="h-12 w-12 text-primary" />
+        </div>
+        <div className="absolute bottom-1/3 right-1/3 opacity-9">
+          <Leaf className="h-10 w-10 text-secondary" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
               Customization FAQs

@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Footprints, Building2, UtensilsCrossed, Heart, Camera, Globe, Star } from "lucide-react"
-
+import Link from "next/link"
 export function JourneysGallery() {
   const galleryImages = [
     {
@@ -145,12 +145,14 @@ export function JourneysGallery() {
           <h3 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Ready to create your own unforgettable memories?
           </h3>
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
-          >
-            Start Planning Your Journey
-          </Button>
+          <Link href="/contact">
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+            >
+              Start Planning Your Journey
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

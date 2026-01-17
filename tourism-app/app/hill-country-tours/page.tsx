@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -120,8 +121,12 @@ export default function HillCountryToursPage() {
           <Button
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+            onClick={() => {
+              const element = document.getElementById('signature-expeditions')
+              element?.scrollIntoView({ behavior: 'smooth' })
+            }}
           >
-            Explore Our Hill Country Journeys
+            Explore our Hill Country journey
           </Button>
         </div>
       </section>
@@ -144,7 +149,7 @@ export default function HillCountryToursPage() {
       </section>
 
       {/* Featured Journeys Section */}
-      <section className="py-24 bg-background">
+      <section id="signature-expeditions" className="py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
@@ -189,9 +194,11 @@ export default function HillCountryToursPage() {
                     {journey.description}
                   </p>
 
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-                    Explore This Journey
-                  </Button>
+                  <Link href={journey.title === "The Tea Trails Explorer" ? "/journeys/tea-trails-explorer" : "/journeys/horton-plains"}>
+                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+                      Explore This Journey
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             ))}
@@ -277,12 +284,14 @@ export default function HillCountryToursPage() {
           <p className="text-xl text-gray-100 mb-8">
             Our Hill Country specialists are ready to design your perfect mountain escape—from scenic train journeys to intimate tea estate experiences.
           </p>
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
-          >
-            Plan Your Hill Country Journey
-          </Button>
+          <Link href="/contact">
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+            >
+              Start to Plan Your Hill Country Journey
+            </Button>
+          </Link>
         </div>
       </section>
     </main>
