@@ -16,26 +16,11 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Immersive Journeys - Premium Travel Experiences",
+  title: "Immersive Journeys ",
   description:
     "Journey Beyond Sightseeing. Curated travel experiences blending authentic cuisine, adventure in nature, and profound cultural history.",
-  generator: "v0.app",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/NewFavicon.png",
   },
 }
 
