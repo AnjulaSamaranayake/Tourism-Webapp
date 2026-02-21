@@ -125,7 +125,7 @@ export default function WildlifeToursPage() {
               element?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            Explore our Wildlife journey
+            Signature Wildlife Journies
           </Button>
         </div>
       </section>

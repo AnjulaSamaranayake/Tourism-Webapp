@@ -126,7 +126,7 @@ export default function HillCountryToursPage() {
               element?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            Explore our Hill Country journey
+            Signature Hill Country Journies
           </Button>
         </div>
       </section>

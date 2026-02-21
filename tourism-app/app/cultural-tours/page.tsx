@@ -126,7 +126,7 @@ export default function CulturalToursPage() {
               element?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            Explore our Cultural journey
+            Signature Cultural Journies
           </Button>
         </div>
       </section>

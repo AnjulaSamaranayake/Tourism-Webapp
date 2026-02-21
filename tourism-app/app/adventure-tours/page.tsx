@@ -126,7 +126,7 @@ export default function AdventureToursPage() {
               element?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            Explore our Adventure journey
+            Signature Adventure Journies
           </Button>
         </div>
       </section>

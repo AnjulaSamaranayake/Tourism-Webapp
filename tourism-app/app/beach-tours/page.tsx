@@ -126,7 +126,7 @@ export default function BeachToursPage() {
               element?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            Explore our Beach journey
+            Signature Beach Journies
           </Button>
         </div>
       </section>

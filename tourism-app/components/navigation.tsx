@@ -18,7 +18,7 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border" suppressHydrationWarning>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-sm border-b border-border" suppressHydrationWarning>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="shrink-0">
@@ -30,12 +30,12 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-8">
             <a
               href="/"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="text-lg font-medium text-foreground hover:text-primary transition-colors"
             >
               Home
             </a>
             <div className="relative group">
-              <button className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors">
+              <button className="flex items-center gap-1 text-lg font-medium text-foreground hover:text-primary transition-colors">
                 Journeys
                 <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
               </button>
@@ -44,7 +44,7 @@ export function Navigation() {
                   <a
                     key={journey.href}
                     href={journey.href}
-                    className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors first:rounded-t-lg last:rounded-b-lg"
+                    className="block px-4 py-3 text-lg font-medium text-foreground hover:bg-muted hover:text-primary transition-colors first:rounded-t-lg last:rounded-b-lg"
                   >
                     {journey.label}
                   </a>
@@ -54,18 +54,18 @@ export function Navigation() {
 
             <a
               href="/share-your-story"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="text-lg font-medium text-foreground hover:text-primary transition-colors"
             >
               Share Your Story
             </a>
             <a
               href="/contact"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="text-lg font-medium text-foreground hover:text-primary transition-colors"
             >
               Contact
             </a>
 
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-secondary transition-colors">
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-secondary rounded-full transition-colors">
               <a href="/contact">
               Book Consultation
               </a>

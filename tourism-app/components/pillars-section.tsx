@@ -9,7 +9,7 @@ export function PillarsSection() {
       headline: "Savor the Story on a Plate",
       description:
         'Go beyond restaurants. Cook with families, visit morning markets with chefs, understand the "why" behind each flavor.',
-      image: "/sri-lankan-family-cooking-curry-traditional-kitche.jpg",
+      image: "/food_img.avif",
     },
     {
       icon: Mountain,
@@ -51,7 +51,7 @@ export function PillarsSection() {
                   backgroundPosition: "center",
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/50 to-transparent" />
+                <div className="absolute rounded-full inset-0 bg-gradient-to-t from-foreground/90 via-foreground/50 to-transparent" />
 
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <pillar.icon className="h-12 w-12 text-accent mb-4" />

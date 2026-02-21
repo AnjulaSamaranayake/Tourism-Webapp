@@ -4,14 +4,17 @@ import { Star, Check } from "lucide-react"
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: "url('/sigiriya-rock-fortress-sri-lanka-misty-sunrise-aer.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="absolute inset-0 z-0 text-white">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/tourism_vid%20-%20Trim01.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute inset-0 bg-foreground/40" />
       </div>
 
@@ -28,7 +31,7 @@ export function HeroSection() {
             and uncover hidden histories with our expert guides.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
+          {/* <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
             <div className="flex items-center gap-2 text-background">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -45,9 +48,9 @@ export function HeroSection() {
               <Check className="h-5 w-5 text-accent" />
               <span className="text-sm font-medium">Local Culinary & History Experts</span>
             </div>
-          </div>
+          </div> */}
 
-          <div className="pt-8">
+          {/* <div className="pt-8">
             <a href="/contact" className="inline-block">
               <Button
                 size="lg"
@@ -56,7 +59,7 @@ export function HeroSection() {
                 Begin Your Journey
               </Button>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
