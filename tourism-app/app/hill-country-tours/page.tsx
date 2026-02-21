@@ -194,11 +194,11 @@ export default function HillCountryToursPage() {
                     {journey.description}
                   </p>
 
-                  <Link href={journey.title === "The Tea Trails Explorer" ? "/journeys/tea-trails-explorer" : "/journeys/horton-plains"}>
+                  {/* <Link href={journey.title === "The Tea Trails Explorer" ? "/journeys/tea-trails-explorer" : "/journeys/horton-plains"}>
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                       Explore This Journey
                     </Button>
-                  </Link>
+                  </Link> */}
                 </div>
               </Card>
             ))}

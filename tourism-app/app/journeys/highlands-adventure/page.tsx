@@ -86,9 +86,6 @@ export default function HighlandsAdventurePage() {
             <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-balance">
               {journey.title}
             </h1>
-            <p className="text-xl sm:text-2xl mb-8 text-gray-100 text-balance">
-              {journey.description}
-            </p>
             <Link href="/contact">
               <Button
                 size="lg"
@@ -100,6 +97,43 @@ export default function HighlandsAdventurePage() {
           </div>
         </section>
 
+        {/* Introduction Section */}
+        <section className="py-24 bg-background border-b border-border">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8">About This Journey</h2>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                {journey.description} Conquer the rugged terrains of the hill country. This journey takes you through the heart of Sri Lanka's emerald highlands, challenging you with mountain biking trails, misty treks, and thrilling river adventures. Discover the perfect blend of physical challenge and serene natural beauty.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Gallery Section */}
+        <section className="py-24 bg-muted/30">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+                Journey Gallery
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {galleryImages.map((image, index) => (
+                <Card key={index} className="group border-none shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden bg-background">
+                  <div className="aspect-square bg-gradient-to-br from-primary/10 to-transparent flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <image.icon className="w-20 h-20 text-primary opacity-60" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-bold text-xl text-foreground mb-2">{image.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{image.description}</p>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Journey Details */}
         <section className="py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,11 +141,11 @@ export default function HighlandsAdventurePage() {
               {details.map((detail, index) => (
                 <Card
                   key={index}
-                  className="p-6 border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="p-8 border-none shadow-md hover:shadow-xl transition-all duration-300 bg-muted/20"
                 >
-                  <detail.icon className="h-10 w-10 text-primary mb-4" />
-                  <p className="text-sm text-muted-foreground mb-2">{detail.label}</p>
-                  <p className="text-lg font-semibold text-foreground">{detail.value}</p>
+                  <detail.icon className="h-12 w-12 text-primary mb-6" />
+                  <p className="text-sm text-muted-foreground uppercase tracking-widest font-bold mb-2">{detail.label}</p>
+                  <p className="text-2xl font-bold text-foreground">{detail.value}</p>
                 </Card>
               ))}
             </div>
@@ -119,7 +153,7 @@ export default function HighlandsAdventurePage() {
         </section>
 
         {/* Highlights */}
-        <section className="py-24 bg-muted">
+        <section className="py-24 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
@@ -131,35 +165,10 @@ export default function HighlandsAdventurePage() {
               {journey.highlights.map((highlight, index) => (
                 <Card
                   key={index}
-                  className="p-8 border-none shadow-lg hover:shadow-xl transition-shadow duration-300 text-center"
+                  className="p-10 border-none shadow-lg hover:shadow-xl transition-all duration-300 text-center bg-background"
                 >
-                  <highlight.icon className="h-12 w-12 text-primary mx-auto mb-6" />
-                  <h3 className="text-xl font-bold text-foreground">{highlight.text}</h3>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Gallery */}
-        <section className="py-24 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-                Journey Gallery
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {galleryImages.map((image, index) => (
-                <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-                  <div className="aspect-square bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center hover:scale-110 transition-transform">
-                    <image.icon className="w-16 h-16 text-secondary" />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg text-foreground">{image.title}</h3>
-                    <p className="text-sm text-muted-foreground">{image.description}</p>
-                  </div>
+                  <highlight.icon className="h-16 w-16 text-primary mx-auto mb-8" />
+                  <h3 className="text-2xl font-bold text-foreground">{highlight.text}</h3>
                 </Card>
               ))}
             </div>
@@ -186,9 +195,8 @@ export default function HighlandsAdventurePage() {
                       {faq.question}
                     </h3>
                     <ChevronDown
-                      className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ml-4 ${
-                        expandedFaq === index ? "rotate-180" : ""
-                      }`}
+                      className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ml-4 ${expandedFaq === index ? "rotate-180" : ""
+                        }`}
                     />
                   </button>
                   {expandedFaq === index && (

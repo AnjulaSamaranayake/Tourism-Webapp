@@ -194,11 +194,11 @@ export default function AdventureToursPage() {
                     {journey.description}
                   </p>
 
-                  <Link href={journey.title === "Highlands Adventure" ? "/journeys/highlands-adventure" : "/journeys/full-island-explorer"}>
+                  {/* <Link href={journey.title === "Highlands Adventure" ? "/journeys/highlands-adventure" : "/journeys/full-island-explorer"}>
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                       Explore This Journey
                     </Button>
-                  </Link>
+                  </Link> */}
                 </div>
               </Card>
             ))}

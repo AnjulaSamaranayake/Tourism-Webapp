@@ -194,11 +194,11 @@ export default function BeachToursPage() {
                     {journey.description}
                   </p>
 
-                  <Link href={journey.title === "South Coast Serenity" ? "/journeys/south-coast-serenity" : "/journeys/west-coast-escape"}>
+                  {/* <Link href={journey.title === "South Coast Serenity" ? "/journeys/south-coast-serenity" : "/journeys/west-coast-escape"}>
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                       Explore This Journey
                     </Button>
-                  </Link>
+                  </Link> */}
                 </div>
               </Card>
             ))}

@@ -11,12 +11,12 @@ import { Card } from '@/components/ui/card'
 import { Star, Camera, Globe, Compass, Heart, MapPin, Plane } from 'lucide-react'
 
 const tours = [
-  'Wildlife Tours',
-  'Cultural Tours',
-  'Beach Tours',
-  'Hill Country Tours',
-  'Adventure Tours',
-  'Customize Your Tour'
+  'Wildlife Tour',
+  'Cultural Tour',
+  'Beach Tour',
+  'Hill Country Tour',
+  'Adventure Tour',
+  'Customize Tour'
 ]
 
 export default function ShareYourStory() {
@@ -261,34 +261,6 @@ export default function ShareYourStory() {
                     rows={6}
                     className="border-muted-foreground/20 focus:border-primary resize-none"
                   />
-                </div>
-
-                {/* Photo Upload */}
-                <div className="space-y-2">
-                  <Label htmlFor="photo" className="text-foreground font-semibold">
-                    Upload a Photo
-                  </Label>
-                  <div className="border-2 border-dashed border-muted-foreground/30 rounded-lg p-6 text-center hover:border-primary/50 transition-colors cursor-pointer">
-                    <input
-                      id="photo"
-                      name="photo"
-                      type="file"
-                      accept="image/*"
-                      onChange={handleFileChange}
-                      className="hidden"
-                    />
-                    <label htmlFor="photo" className="cursor-pointer block">
-                      <p className="text-sm text-muted-foreground">
-                        Share your best photo from the trip <span className="text-xs">(Optional)</span>
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-2">Max size 5MB</p>
-                      {formData.photo && (
-                        <p className="text-sm text-primary mt-2 font-semibold">
-                          ✓ {formData.photo.name}
-                        </p>
-                      )}
-                    </label>
-                  </div>
                 </div>
 
                 {/* Permission Checkbox */}

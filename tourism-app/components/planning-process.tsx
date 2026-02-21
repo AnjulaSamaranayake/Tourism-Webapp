@@ -45,7 +45,7 @@ export function PlanningProcess() {
                 <p className="text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-border" />
+                <div className="hidden md:block absolute top-10 left-[67%] w-[80%] h-0.5 bg-border" />
               )}
             </div>
           ))}

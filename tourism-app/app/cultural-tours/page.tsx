@@ -194,11 +194,11 @@ export default function CulturalToursPage() {
                     {journey.description}
                   </p>
 
-                  <Link href={journey.title === "Kingdoms & Sacred Sites" ? "/journeys/kingdoms-sacred-sites" : "/journeys/dambulla-kandy"}>
+                  {/* <Link href={journey.title === "Kingdoms & Sacred Sites" ? "/journeys/kingdoms-sacred-sites" : "/journeys/dambulla-kandy"}>
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                       Explore This Journey
                     </Button>
-                  </Link>
+                  </Link> */}
                 </div>
               </Card>
             ))}

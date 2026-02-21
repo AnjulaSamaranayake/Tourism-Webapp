@@ -197,11 +197,11 @@ export default function WildlifeToursPage() {
                     {journey.description}
                   </p>
 
-                  <Link href={journey.title === "The Leopard's Trail" ? "/journeys/leopards-trail" : "/journeys/elephant-gathering"}>
+                  {/* <Link href={journey.title === "The Leopard's Trail" ? "/journeys/leopards-trail" : "/journeys/elephant-gathering"}>
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                       Explore This Journey
                     </Button>
-                  </Link>
+                  </Link> */}
                 </div>
               </Card>
             ))}
