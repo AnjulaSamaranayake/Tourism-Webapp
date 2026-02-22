@@ -101,200 +101,204 @@ export default function CulturalToursPage() {
     <>
       <Navigation />
       <main className="min-h-screen bg-background pt-20">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/sigiriya-rock-fortress-sunrise.jpg')",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-
-        <div className="relative z-10 text-center text-white px-4 max-w-3xl">
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-balance">
-            Walk Through Living History
-          </h1>
-          <p className="text-xl sm:text-2xl mb-8 text-gray-100 text-balance">
-            Uncover the layers of ancient kingdoms, spiritual traditions, and living arts that have shaped Sri Lanka's soul across millennia. Experience culture not as a museum, but as a breathing, evolving heritage.
-          </p>
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
-            onClick={() => {
-              const element = document.getElementById('signature-expeditions')
-              element?.scrollIntoView({ behavior: 'smooth' })
-            }}
+        {/* Hero Section */}
+        <section className="relative h-screen flex items-center justify-center overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster="/sigiriya-rock-fortress-sunrise.jpg"
           >
-            Signature Cultural Journies
-          </Button>
-        </div>
-      </section>
+            <source src="/Cultural_vid.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute inset-0 bg-black/40" />
 
-      {/* Philosophy Section */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8">
-              Culture as a Living Conversation
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Sri Lanka's cultural heritage is not locked in the past—it thrives in daily rituals, artistic traditions, and the hearts of its people. We believe authentic cultural tourism means dialogue, not observation.
+          <div className="relative z-10 text-center text-white px-4 max-w-3xl">
+            <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-balance">
+              Walk Through Living History
+            </h1>
+            <p className="text-xl sm:text-2xl mb-8 text-gray-100 text-balance">
+              Uncover the layers of ancient kingdoms, spiritual traditions, and living arts that have shaped Sri Lanka's soul across millennia. Experience culture not as a museum, but as a breathing, evolving heritage.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Our journeys connect you with historians, monks, artisans, and families who carry these traditions forward, helping you understand not just what happened, but what it means to live within this rich cultural tapestry.
-            </p>
+            <Button
+              size="lg"
+              className="bg-primary/50 text-primary-foreground hover:bg-primary rounded-full text-lg px-8 py-6"
+              onClick={() => {
+                const element = document.getElementById('signature-expeditions')
+                element?.scrollIntoView({ behavior: 'smooth' })
+              }}
+            >
+              Signature Cultural Journies
+            </Button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Featured Journeys Section */}
-      <section id="signature-expeditions" className="py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Signature Cultural Expeditions
-            </h2>
+        {/* Philosophy Section */}
+        <section className="py-24 bg-muted">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8">
+                Culture as a Living Conversation
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Sri Lanka's cultural heritage is not locked in the past—it thrives in daily rituals, artistic traditions, and the hearts of its people. We believe authentic cultural tourism means dialogue, not observation.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Our journeys connect you with historians, monks, artisans, and families who carry these traditions forward, helping you understand not just what happened, but what it means to live within this rich cultural tapestry.
+              </p>
+            </div>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {journeys.map((journey, index) => (
-              <Card
-                key={index}
-                className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="relative h-80 bg-muted overflow-hidden group">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                    style={{
-                      backgroundImage: `url('${journey.image}')`,
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
-                </div>
+        {/* Featured Journeys Section */}
+        <section id="signature-expeditions" className="py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+                Signature Cultural Expeditions
+              </h2>
+            </div>
 
-                <div className="p-8 space-y-6">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-                      {journey.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-2">{journey.subtitle}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {journeys.map((journey, index) => (
+                <Card
+                  key={index}
+                  className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="relative h-80 bg-muted overflow-hidden group">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                      style={{
+                        backgroundImage: `url('${journey.image}')`,
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4">
-                    {journey.highlights.map((highlight, i) => (
-                      <div key={i} className="text-center">
-                        <highlight.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
-                        <p className="text-sm font-medium text-foreground">{highlight.text}</p>
-                      </div>
-                    ))}
-                  </div>
+                  <div className="p-8 space-y-6">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+                        {journey.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-2">{journey.subtitle}</p>
+                    </div>
 
-                  <p className="text-muted-foreground leading-relaxed text-base">
-                    {journey.description}
-                  </p>
+                    <div className="grid grid-cols-3 gap-4">
+                      {journey.highlights.map((highlight, i) => (
+                        <div key={i} className="text-center">
+                          <highlight.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
+                          <p className="text-sm font-medium text-foreground">{highlight.text}</p>
+                        </div>
+                      ))}
+                    </div>
 
-                  {/* <Link href={journey.title === "Kingdoms & Sacred Sites" ? "/journeys/kingdoms-sacred-sites" : "/journeys/dambulla-kandy"}>
+                    <p className="text-muted-foreground leading-relaxed text-base">
+                      {journey.description}
+                    </p>
+
+                    {/* <Link href={journey.title === "Kingdoms & Sacred Sites" ? "/journeys/kingdoms-sacred-sites" : "/journeys/dambulla-kandy"}>
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                       Explore This Journey
                     </Button>
                   </Link> */}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Immersive Elements Section */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              What Makes Our Cultural Tours Unique
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {uniqueElements.map((element, index) => (
-              <Card
-                key={index}
-                className="p-8 border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <element.icon className="h-12 w-12 text-primary mb-6" />
-                <h3 className="text-xl font-bold text-foreground mb-4">{element.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{element.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Planning Your Cultural Adventure
-            </h2>
-          </div>
-
-          <div className="max-w-2xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border border-border rounded-lg overflow-hidden">
-                <button
-                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                  className="w-full px-6 py-4 flex items-center justify-between bg-background hover:bg-muted transition-colors"
-                >
-                  <h3 className="text-lg font-semibold text-foreground text-left">
-                    {faq.question}
-                  </h3>
-                  <ChevronDown
-                    className={`h-5 w-5 text-muted-foreground transition-transform duration-300  ml-4 ${
-                      expandedFaq === index ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {expandedFaq === index && (
-                  <div className="px-6 py-4 bg-muted border-t border-border">
-                    <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
                   </div>
-                )}
-              </div>
-            ))}
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section
-        className="relative py-24 flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: "url('/jungle-scene.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
+        {/* Immersive Elements Section */}
+        <section className="py-24 bg-muted">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+                What Makes Our Cultural Tours Unique
+              </h2>
+            </div>
 
-        <div className="relative z-10 text-center text-white px-4 max-w-2xl">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-balance">
-            Ready to Step Into History?
-          </h2>
-          <p className="text-xl text-gray-100 mb-8">
-            Connect with our cultural travel specialists to design a journey that resonates with your interests, from ancient archaeology to living traditions.
-          </p>
-          <Link href="/contact">
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
-            >
-              Start to Plan Your Cultural Journey
-            </Button>
-          </Link>
-        </div>
-      </section>
-    </main>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {uniqueElements.map((element, index) => (
+                <Card
+                  key={index}
+                  className="p-8 border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <element.icon className="h-12 w-12 text-primary mb-6" />
+                  <h3 className="text-xl font-bold text-foreground mb-4">{element.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{element.description}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+                Planning Your Cultural Adventure
+              </h2>
+            </div>
+
+            <div className="max-w-2xl mx-auto space-y-4">
+              {faqs.map((faq, index) => (
+                <div key={index} className="border border-border rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                    className="w-full px-6 py-4 flex items-center justify-between bg-background hover:bg-muted transition-colors"
+                  >
+                    <h3 className="text-lg font-semibold text-foreground text-left">
+                      {faq.question}
+                    </h3>
+                    <ChevronDown
+                      className={`h-5 w-5 text-muted-foreground transition-transform duration-300  ml-4 ${expandedFaq === index ? "rotate-180" : ""
+                        }`}
+                    />
+                  </button>
+                  {expandedFaq === index && (
+                    <div className="px-6 py-4 bg-muted border-t border-border">
+                      <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section
+          className="relative py-24 flex items-center justify-center overflow-hidden"
+          style={{
+            backgroundImage: "url('/jungle-scene.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/50" />
+
+          <div className="relative z-10 text-center text-white px-4 max-w-2xl">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-balance">
+              Ready to Step Into History?
+            </h2>
+            <p className="text-xl text-gray-100 mb-8">
+              Connect with our cultural travel specialists to design a journey that resonates with your interests, from ancient archaeology to living traditions.
+            </p>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+              >
+                Start to Plan Your Cultural Journey
+              </Button>
+            </Link>
+          </div>
+        </section>
+      </main>
       <Footer />
     </>
   )

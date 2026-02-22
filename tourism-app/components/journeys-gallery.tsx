@@ -8,7 +8,6 @@ export function JourneysGallery() {
       image: "/guest-cooking-kandy.jpg",
       guestName: "Sarah & Mark",
       country: "Australia",
-      icon: UtensilsCrossed,
       activity: "Culinary",
       story: "Sarah and Mark experiencing their first traditional cooking lesson with a local family in Kandy.",
     },
@@ -16,7 +15,6 @@ export function JourneysGallery() {
       image: "/guests-hiking-horton.jpg",
       guestName: "Elena",
       country: "Spain",
-      icon: Footprints,
       activity: "Adventure",
       story: "Elena's awestruck moment at the edge of World's End, Horton Plains. 2,000 meters of pure magic.",
     },
@@ -24,7 +22,6 @@ export function JourneysGallery() {
       image: "/guests-safari-yala.jpg",
       guestName: "James & Lisa",
       country: "Canada",
-      icon: Camera,
       activity: "Wildlife",
       story: "James and Lisa spotting a leopard on their first safari drive in Yala National Park.",
     },
@@ -32,7 +29,6 @@ export function JourneysGallery() {
       image: "/guest-temple-ceremony.jpg",
       guestName: "Priya",
       country: "USA",
-      icon: Building2,
       activity: "Cultural",
       story: "Priya participating in an evening prayer ceremony at a sacred Buddhist temple in Kandy.",
     },
@@ -40,7 +36,6 @@ export function JourneysGallery() {
       image: "/guests-market-colombo.jpg",
       guestName: "Ahmed & Fatima",
       country: "UAE",
-      icon: UtensilsCrossed,
       activity: "Culinary",
       story: "Ahmed and Fatima exploring the vibrant spice markets of Colombo with our guide.",
     },
@@ -48,7 +43,6 @@ export function JourneysGallery() {
       image: "/guests-sunset-mirissa.jpg",
       guestName: "Tom",
       country: "UK",
-      icon: Heart,
       activity: "Joy",
       story: "Tom's magical sunset moment on Mirissa Beach with a glass of fresh juice.",
     },
@@ -56,7 +50,6 @@ export function JourneysGallery() {
       image: "/guest-artisan-workshop.jpg",
       guestName: "Yuki",
       country: "Japan",
-      icon: Building2,
       activity: "Cultural",
       story: "Yuki learning traditional batik-making techniques from a local artisan in Matara.",
     },
@@ -64,7 +57,6 @@ export function JourneysGallery() {
       image: "/guests-whale-watching.jpg",
       guestName: "David & Sophie",
       country: "France",
-      icon: Camera,
       activity: "Adventure",
       story: "David and Sophie spotting a blue whale off the coast of Mirissa—a moment of pure wonder.",
     },
@@ -72,7 +64,6 @@ export function JourneysGallery() {
       image: "/guide-with-guests-tea.jpg",
       guestName: "The Complete Experience",
       country: "Multiple Countries",
-      icon: Heart,
       activity: "Connection",
       story: "Our guide sharing tea stories with guests at a working tea plantation in Nuwara Eliya.",
     },
@@ -126,10 +117,6 @@ export function JourneysGallery() {
 
                 {/* Guest Info Overlay */}
                 <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <item.icon className="h-8 w-8 mb-2" />
-                  </div>
-
                   <div>
                     <h3 className="text-lg font-bold">{item.guestName}</h3>
                     <p className="text-sm text-gray-200">{item.country}</p>

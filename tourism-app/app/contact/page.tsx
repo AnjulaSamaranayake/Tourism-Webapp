@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Mail, Phone, MessageSquare, Send, MapPin, Clock, Instagram, Facebook, Youtube, Star, CheckCircle, Compass, Leaf, Zap, Sparkles, Globe, Heart, Camera, Plane, Footprints, Mountain } from "lucide-react"
+import { Mail, Phone, MessageSquare, Send, MapPin, Clock, Instagram, Facebook ,MessageCircle,  Star, CheckCircle, Compass, Leaf, Zap, Sparkles, Globe, Heart, Camera, Plane, Footprints, Mountain } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
@@ -143,11 +143,11 @@ export default function ContactPage() {
       link: "mailto:info@immersivejourneys.com",
     },
     {
-      icon: MessageSquare,
-      title: "Live Chat",
-      details: ["Available during business hours"],
-      description: "Quick, pre-booking questions to get instant clarification.",
-      link: "#chat",
+      icon: Globe,
+      title: "Book on Booking.com",
+      details: ["Find Us on Booking.com"],
+      description: "Prefer to book through a platform? Find our official listings on Booking.com.",
+      link: "https://www.booking.com",
     },
     {
       icon: Send,
@@ -269,7 +269,7 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Form Section */}
-        <section className="relative py-16 md:py-24 from-muted/50 to-background overflow-hidden">
+        <section className="relative py-16 md:py-24 from-muted/50 to-background overflow-hidden ">
           {/* Decorative Elements */}
           <div className="absolute top-20 left-5 opacity-10">
             <Sparkles className="h-16 w-16 text-primary" />
@@ -299,10 +299,10 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6 bg-background p-8 rounded-lg border border-border shadow-xl">
+              <form onSubmit={handleSubmit} className="space-y-6 bg-background p-8 rounded-2xl border border-border shadow-xl">
                 {/* Success Message */}
                 {submitStatus === "success" && (
-                  <div className="p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3">
+                  <div className="p-4 bg-green-50 border border-green-200 rounded-2xl flex items-center gap-3">
                     <CheckCircle className="h-5 w-5 text-green-600 " />
                     <div>
                       <p className="text-sm font-medium text-green-900">
@@ -317,7 +317,7 @@ export default function ContactPage() {
 
                 {/* Error Message */}
                 {submitStatus === "error" && (
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-2xl">
                     <p className="text-sm font-medium text-red-900">
                       Something went wrong. Please try again or contact us directly.
                     </p>
@@ -502,7 +502,7 @@ export default function ContactPage() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary hover:bg-primary/90"
+                  className="w-full bg-primary hover:bg-primary/60 rounded-xl"
                   disabled={isSubmitting || submitStatus === "success"}
                 >
                   {isSubmitting ? (
@@ -526,7 +526,7 @@ export default function ContactPage() {
         </section>
 
         {/* Social Media Section */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-br from-secondary/5 via-accent/4 to-primary/5 overflow-hidden">
+        <section className="relative py-16 md:py-24 bg-gradient-to-br from-secondary/5 via-accent/4 to-primary/5 overflow-hidden ">
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-10 right-20">
               <Globe className="h-24 w-24 text-primary rotate-12" />
@@ -545,7 +545,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 ">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl font-bold text-foreground mb-6">
                 Join Our Travel Community
@@ -560,7 +560,7 @@ export default function ContactPage() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative p-4 border border-border rounded-lg shadow-sm hover:shadow-md hover:bg-muted transition-all hover:text-primary group overflow-hidden"
+                  className="relative p-4 border border-border rounded-2xl shadow-sm hover:shadow-md hover:bg-muted transition-all hover:text-primary group overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative z-10">
@@ -572,7 +572,7 @@ export default function ContactPage() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative p-4 border border-border rounded-lg shadow-sm hover:shadow-md hover:bg-muted transition-all hover:text-primary group overflow-hidden"
+                  className="relative p-4 border border-border rounded-2xl shadow-sm hover:shadow-md hover:bg-muted transition-all hover:text-primary group overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative z-10">
@@ -581,22 +581,22 @@ export default function ContactPage() {
                   </div>
                 </a>
                 <a
-                  href="https://youtube.com"
+                  href="https://wa.me/94771234567"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative p-4 border border-border rounded-lg shadow-sm hover:shadow-md hover:bg-muted transition-all hover:text-primary group overflow-hidden"
+                  className="relative p-4 border border-border rounded-2xl shadow-sm hover:shadow-md hover:bg-muted transition-all hover:text-primary group overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative z-10">
-                    <Youtube className="h-8 w-8 mx-auto group-hover:scale-110 transition-transform" />
-                    <p className="text-sm font-medium mt-2">YouTube</p>
+                    <MessageCircle className="h-8 w-8 mx-auto group-hover:scale-110 transition-transform" />
+                    <p className="text-sm font-medium mt-2">WhatsApp</p>
                   </div>
                 </a>
                 <a
                   href="https://tripadvisor.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative p-4 border border-border rounded-lg shadow-sm hover:shadow-md hover:bg-muted transition-all hover:text-primary group overflow-hidden"
+                  className="relative p-4 border border-border rounded-2xl shadow-sm hover:shadow-md hover:bg-muted transition-all hover:text-primary group overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative z-10">

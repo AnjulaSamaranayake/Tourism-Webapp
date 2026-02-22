@@ -101,200 +101,204 @@ export default function HillCountryToursPage() {
     <>
       <Navigation />
       <main className="min-h-screen bg-background pt-20">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/tea-plantations-nuwara-eliya.jpg')",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-
-        <div className="relative z-10 text-center text-white px-4 max-w-3xl">
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-balance">
-            Find Your Elevation
-          </h1>
-          <p className="text-xl sm:text-2xl mb-8 text-gray-100 text-balance">
-            Escape to the cool heights of Sri Lanka's central highlands, where mist-cloaked tea estates, colonial charm, and iconic mountain railways blend into unforgettable journeys.
-          </p>
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
-            onClick={() => {
-              const element = document.getElementById('signature-expeditions')
-              element?.scrollIntoView({ behavior: 'smooth' })
-            }}
+        {/* Hero Section */}
+        <section className="relative h-screen flex items-center justify-center overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster="/tea-plantations-nuwara-eliya.jpg"
           >
-            Signature Hill Country Journies
-          </Button>
-        </div>
-      </section>
+            <source src="/Hill_country.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute inset-0 bg-black/40" />
 
-      {/* Philosophy Section */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8">
-              Where Cool Breezes Meet Timeless Charm
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              The Hill Country isn't just a destination—it's an escape into a different world. Here, colonial heritage, living tea traditions, and pristine mountain landscapes create a unique atmosphere that has captivated visitors for centuries.
+          <div className="relative z-10 text-center text-white px-4 max-w-3xl">
+            <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-balance">
+              Find Your Elevation
+            </h1>
+            <p className="text-xl sm:text-2xl mb-8 text-gray-100 text-balance">
+              Escape to the cool heights of Sri Lanka's central highlands, where mist-cloaked tea estates, colonial charm, and iconic mountain railways blend into unforgettable journeys.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              We believe these highlands are best experienced slowly, with respect for both the landscape and the communities that call it home. Let us guide you through tea estates, mountain trails, and hidden valleys that most tourists never discover.
-            </p>
+            <Button
+              size="lg"
+              className="bg-primary/50 text-primary-foreground hover:bg-primary rounded-full text-lg px-8 py-6"
+              onClick={() => {
+                const element = document.getElementById('signature-expeditions')
+                element?.scrollIntoView({ behavior: 'smooth' })
+              }}
+            >
+              Signature Hill Country Journies
+            </Button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Featured Journeys Section */}
-      <section id="signature-expeditions" className="py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Signature Hill Country Expeditions
-            </h2>
+        {/* Philosophy Section */}
+        <section className="py-24 bg-muted">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8">
+                Where Cool Breezes Meet Timeless Charm
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                The Hill Country isn't just a destination—it's an escape into a different world. Here, colonial heritage, living tea traditions, and pristine mountain landscapes create a unique atmosphere that has captivated visitors for centuries.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                We believe these highlands are best experienced slowly, with respect for both the landscape and the communities that call it home. Let us guide you through tea estates, mountain trails, and hidden valleys that most tourists never discover.
+              </p>
+            </div>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {journeys.map((journey, index) => (
-              <Card
-                key={index}
-                className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="relative h-80 bg-muted overflow-hidden group">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                    style={{
-                      backgroundImage: `url('${journey.image}')`,
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
-                </div>
+        {/* Featured Journeys Section */}
+        <section id="signature-expeditions" className="py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+                Signature Hill Country Expeditions
+              </h2>
+            </div>
 
-                <div className="p-8 space-y-6">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-                      {journey.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-2">{journey.subtitle}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {journeys.map((journey, index) => (
+                <Card
+                  key={index}
+                  className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="relative h-80 bg-muted overflow-hidden group">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                      style={{
+                        backgroundImage: `url('${journey.image}')`,
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4">
-                    {journey.highlights.map((highlight, i) => (
-                      <div key={i} className="text-center">
-                        <highlight.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
-                        <p className="text-sm font-medium text-foreground">{highlight.text}</p>
-                      </div>
-                    ))}
-                  </div>
+                  <div className="p-8 space-y-6">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+                        {journey.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-2">{journey.subtitle}</p>
+                    </div>
 
-                  <p className="text-muted-foreground leading-relaxed text-base">
-                    {journey.description}
-                  </p>
+                    <div className="grid grid-cols-3 gap-4">
+                      {journey.highlights.map((highlight, i) => (
+                        <div key={i} className="text-center">
+                          <highlight.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
+                          <p className="text-sm font-medium text-foreground">{highlight.text}</p>
+                        </div>
+                      ))}
+                    </div>
 
-                  {/* <Link href={journey.title === "The Tea Trails Explorer" ? "/journeys/tea-trails-explorer" : "/journeys/horton-plains"}>
+                    <p className="text-muted-foreground leading-relaxed text-base">
+                      {journey.description}
+                    </p>
+
+                    {/* <Link href={journey.title === "The Tea Trails Explorer" ? "/journeys/tea-trails-explorer" : "/journeys/horton-plains"}>
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                       Explore This Journey
                     </Button>
                   </Link> */}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Immersive Elements Section */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              What Makes Our Hill Country Tours Unique
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {uniqueElements.map((element, index) => (
-              <Card
-                key={index}
-                className="p-8 border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <element.icon className="h-12 w-12 text-primary mb-6" />
-                <h3 className="text-xl font-bold text-foreground mb-4">{element.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{element.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Planning Your Hill Country Adventure
-            </h2>
-          </div>
-
-          <div className="max-w-2xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border border-border rounded-lg overflow-hidden">
-                <button
-                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                  className="w-full px-6 py-4 flex items-center justify-between bg-background hover:bg-muted transition-colors"
-                >
-                  <h3 className="text-lg font-semibold text-foreground text-left">
-                    {faq.question}
-                  </h3>
-                  <ChevronDown
-                    className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ml-4 ${
-                      expandedFaq === index ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {expandedFaq === index && (
-                  <div className="px-6 py-4 bg-muted border-t border-border">
-                    <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
                   </div>
-                )}
-              </div>
-            ))}
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section
-        className="relative py-24 flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: "url('/misty-mountains.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
+        {/* Immersive Elements Section */}
+        <section className="py-24 bg-muted">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+                What Makes Our Hill Country Tours Unique
+              </h2>
+            </div>
 
-        <div className="relative z-10 text-center text-white px-4 max-w-2xl">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-balance">
-            Ready to Ascend to the Highlands?
-          </h2>
-          <p className="text-xl text-gray-100 mb-8">
-            Our Hill Country specialists are ready to design your perfect mountain escape—from scenic train journeys to intimate tea estate experiences.
-          </p>
-          <Link href="/contact">
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
-            >
-              Start to Plan Your Hill Country Journey
-            </Button>
-          </Link>
-        </div>
-      </section>
-    </main>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {uniqueElements.map((element, index) => (
+                <Card
+                  key={index}
+                  className="p-8 border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <element.icon className="h-12 w-12 text-primary mb-6" />
+                  <h3 className="text-xl font-bold text-foreground mb-4">{element.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{element.description}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+                Planning Your Hill Country Adventure
+              </h2>
+            </div>
+
+            <div className="max-w-2xl mx-auto space-y-4">
+              {faqs.map((faq, index) => (
+                <div key={index} className="border border-border rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                    className="w-full px-6 py-4 flex items-center justify-between bg-background hover:bg-muted transition-colors"
+                  >
+                    <h3 className="text-lg font-semibold text-foreground text-left">
+                      {faq.question}
+                    </h3>
+                    <ChevronDown
+                      className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ml-4 ${expandedFaq === index ? "rotate-180" : ""
+                        }`}
+                    />
+                  </button>
+                  {expandedFaq === index && (
+                    <div className="px-6 py-4 bg-muted border-t border-border">
+                      <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section
+          className="relative py-24 flex items-center justify-center overflow-hidden"
+          style={{
+            backgroundImage: "url('/misty-mountains.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/50" />
+
+          <div className="relative z-10 text-center text-white px-4 max-w-2xl">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-balance">
+              Ready to Ascend to the Highlands?
+            </h2>
+            <p className="text-xl text-gray-100 mb-8">
+              Our Hill Country specialists are ready to design your perfect mountain escape—from scenic train journeys to intimate tea estate experiences.
+            </p>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+              >
+                Start to Plan Your Hill Country Journey
+              </Button>
+            </Link>
+          </div>
+        </section>
+      </main>
       <Footer />
     </>
   )
