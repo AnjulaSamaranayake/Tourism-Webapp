@@ -27,6 +27,7 @@ export default function AdventureToursPage() {
   const signaturePlaces = [
     {
       title: "Adam’s Peak",
+      slug: "adams-peak",
       subtitle: "Night hike pilgrimage",
       image: "/travelers-hiking-through-misty-mountain-landscape-.jpg",
       highlights: [
@@ -39,6 +40,7 @@ export default function AdventureToursPage() {
     },
     {
       title: "Knuckles Mountain Range",
+      slug: "knuckles-range",
       subtitle: "Trekking & camping",
       image: "/hikers-on-misty-forest-trail-with-guide.jpg",
       highlights: [
@@ -51,6 +53,7 @@ export default function AdventureToursPage() {
     },
     {
       title: "Kitulgala",
+      slug: "kitulgala",
       subtitle: "White water rafting",
       image: "/mountain-highlands-landscape-with-traditional-vill.jpg",
       highlights: [
@@ -63,6 +66,7 @@ export default function AdventureToursPage() {
     },
     {
       title: "Little Adam’s Peak",
+      slug: "little-adams-peak",
       subtitle: "Easy scenic hike",
       image: "/hiking-through-sri-lanka-tea-plantations-ella-rock.jpg",
       highlights: [
@@ -75,6 +79,7 @@ export default function AdventureToursPage() {
     },
     {
       title: "Riverston",
+      slug: "riverston",
       subtitle: "Hidden adventure spot",
       image: "/mountain-highlands-landscape-with-traditional-vill.jpg",
       highlights: [
@@ -237,6 +242,12 @@ export default function AdventureToursPage() {
                     <p className="text-muted-foreground leading-relaxed text-base flex-grow">
                       {place.description}
                     </p>
+
+                    <Link href={`/adventure/${place.slug}`} className="mt-4">
+                      <Button variant="outline" className="w-full border-primary/20 hover:border-primary hover:bg-primary/5">
+                        More Info
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               ))}

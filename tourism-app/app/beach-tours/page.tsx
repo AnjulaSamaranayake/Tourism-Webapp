@@ -26,6 +26,7 @@ export default function BeachToursPage() {
   const signaturePlaces = [
     {
       title: "Mirissa",
+      slug: "mirissa",
       subtitle: "Whale watching, chill vibes",
       image: "/coastal-fishing-village-with-boats-at-sunset.jpg",
       highlights: [
@@ -38,6 +39,7 @@ export default function BeachToursPage() {
     },
     {
       title: "Arugam Bay",
+      slug: "arugam-bay",
       subtitle: "Surfing capital",
       image: "/sri-lanka-fishing-stilt-fishermen-sunset-beach-gal.jpg",
       highlights: [
@@ -50,6 +52,7 @@ export default function BeachToursPage() {
     },
     {
       title: "Hikkaduwa",
+      slug: "hikkaduwa",
       subtitle: "Coral reefs, nightlife",
       image: "/coastal-fishing-village-with-boats-at-sunset.jpg",
       highlights: [
@@ -62,6 +65,7 @@ export default function BeachToursPage() {
     },
     {
       title: "Unawatuna",
+      slug: "unawatuna",
       subtitle: "Calm swimming beach",
       image: "/coastal-fishing-village-with-boats-at-sunset.jpg",
       highlights: [
@@ -74,6 +78,7 @@ export default function BeachToursPage() {
     },
     {
       title: "Bentota",
+      slug: "bentota",
       subtitle: "Resorts & water sports",
       image: "/coastal-fishing-village-with-boats-at-sunset.jpg",
       highlights: [
@@ -236,6 +241,12 @@ export default function BeachToursPage() {
                     <p className="text-muted-foreground leading-relaxed text-base flex-grow">
                       {place.description}
                     </p>
+
+                    <Link href={`/beach/${place.slug}`} className="mt-4">
+                      <Button variant="outline" className="w-full border-primary/20 hover:border-primary hover:bg-primary/5">
+                        More Info
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               ))}

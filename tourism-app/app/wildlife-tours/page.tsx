@@ -21,6 +21,7 @@ export default function WildlifeToursPage() {
   const signaturePlaces = [
     {
       title: "Yala National Park",
+      slug: "yala-national-park",
       subtitle: "Best for leopard sightings",
       image: "/yala-leopard-national-park.jpg",
       highlights: [
@@ -33,6 +34,7 @@ export default function WildlifeToursPage() {
     },
     {
       title: "Udawalawe National Park",
+      slug: "udawalawe-national-park",
       subtitle: "Famous for elephants",
       image: "/minneriya-elephant-gathering.jpg",
       highlights: [
@@ -45,6 +47,7 @@ export default function WildlifeToursPage() {
     },
     {
       title: "Bundala National Park",
+      slug: "bundala-national-park",
       subtitle: "Birdwatching hotspot (Ramsar wetland)",
       image: "/jungle-scene.jpg",
       highlights: [
@@ -57,6 +60,7 @@ export default function WildlifeToursPage() {
     },
     {
       title: "Minneriya National Park",
+      slug: "minneriya-national-park",
       subtitle: "“The Gathering” of elephants",
       image: "/minneriya-elephant-gathering.jpg",
       highlights: [
@@ -69,6 +73,7 @@ export default function WildlifeToursPage() {
     },
     {
       title: "Wilpattu National Park",
+      slug: "wilpattu-national-park",
       subtitle: "Largest park, unique lakes",
       image: "/jungle-scene.jpg",
       highlights: [
@@ -237,6 +242,12 @@ export default function WildlifeToursPage() {
                     <p className="text-muted-foreground leading-relaxed text-base flex-grow">
                       {place.description}
                     </p>
+
+                    <Link href={`/wildlife/${place.slug}`} className="mt-4">
+                      <Button variant="outline" className="w-full border-primary/20 hover:border-primary hover:bg-primary/5">
+                        More Info
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               ))}

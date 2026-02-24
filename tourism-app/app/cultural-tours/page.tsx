@@ -24,6 +24,7 @@ export default function CulturalToursPage() {
   const signaturePlaces = [
     {
       title: "Sigiriya",
+      slug: "sigiriya",
       subtitle: "UNESCO rock fortress",
       image: "/sigiriya-rock-fortress-sri-lanka-misty-sunrise-aer.jpg",
       highlights: [
@@ -36,6 +37,7 @@ export default function CulturalToursPage() {
     },
     {
       title: "Anuradhapura",
+      slug: "anuradhapura",
       subtitle: "Ancient capital ruins",
       image: "/sri-lanka-ancient-city-anuradhapura-buddhist-stupa.jpg",
       highlights: [
@@ -48,6 +50,7 @@ export default function CulturalToursPage() {
     },
     {
       title: "Polonnaruwa",
+      slug: "polonnaruwa",
       subtitle: "Archaeological wonders",
       image: "/ancient-temple-with-local-historian-guide.jpg",
       highlights: [
@@ -60,6 +63,7 @@ export default function CulturalToursPage() {
     },
     {
       title: "Temple of the Sacred Tooth Relic",
+      slug: "temple-of-the-tooth",
       subtitle: "Sacred Buddhist site",
       image: "/ancient-buddhist-temple-sri-lanka-dambulla-cave-pa.jpg",
       highlights: [
@@ -72,6 +76,7 @@ export default function CulturalToursPage() {
     },
     {
       title: "Dambulla Cave Temple",
+      slug: "dambulla-cave-temple",
       subtitle: "Cave murals & statues",
       image: "/ancient-buddhist-temple-sri-lanka-dambulla-cave-pa.jpg",
       highlights: [
@@ -201,6 +206,7 @@ export default function CulturalToursPage() {
             <div className="flex flex-wrap justify-center gap-8">
               {signaturePlaces.map((place, index) => (
                 <Card
+
                   key={index}
                   className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
                 >
@@ -234,6 +240,12 @@ export default function CulturalToursPage() {
                     <p className="text-muted-foreground leading-relaxed text-base flex-grow">
                       {place.description}
                     </p>
+
+                    <Link href={`/culture/${place.slug}`} className="mt-4">
+                      <Button variant="outline" className="w-full border-primary/20 hover:border-primary hover:bg-primary/5">
+                        More Info
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               ))}

@@ -26,6 +26,7 @@ export default function HillCountryToursPage() {
   const signaturePlaces = [
     {
       title: "Ella",
+      slug: "ella",
       subtitle: "Scenic hikes, Nine Arch Bridge",
       image: "/hiking-through-sri-lanka-tea-plantations-ella-rock.jpg",
       highlights: [
@@ -38,6 +39,7 @@ export default function HillCountryToursPage() {
     },
     {
       title: "Nuwara Eliya",
+      slug: "nuwara-eliya",
       subtitle: "Tea country, cool climate",
       image: "/sri-lanka-hill-country-tea-plantations-nuwara-eliy.jpg",
       highlights: [
@@ -50,6 +52,7 @@ export default function HillCountryToursPage() {
     },
     {
       title: "Haputale",
+      slug: "haputale",
       subtitle: "Stunning viewpoints (Lipton’s Seat)",
       image: "/mountain-highlands-landscape-with-traditional-vill.jpg",
       highlights: [
@@ -62,6 +65,7 @@ export default function HillCountryToursPage() {
     },
     {
       title: "Kandy",
+      slug: "kandy",
       subtitle: "Cultural + hill country gateway",
       image: "/ancient-temple-with-local-historian-guide.jpg",
       highlights: [
@@ -74,6 +78,7 @@ export default function HillCountryToursPage() {
     },
     {
       title: "Horton Plains National Park",
+      slug: "horton-plains",
       subtitle: "World’s End trek",
       image: "/travelers-hiking-through-misty-mountain-landscape-.jpg",
       highlights: [
@@ -236,6 +241,12 @@ export default function HillCountryToursPage() {
                     <p className="text-muted-foreground leading-relaxed text-base flex-grow">
                       {place.description}
                     </p>
+
+                    <Link href={`/hill-country/${place.slug}`} className="mt-4">
+                      <Button variant="outline" className="w-full border-primary/20 hover:border-primary hover:bg-primary/5">
+                        More Info
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               ))}
