@@ -16,35 +16,74 @@ import {
   Zap,
   Heart,
   Mountain,
+  Leaf,
+  Cloud,
+  Binoculars,
 } from "lucide-react"
 
 export default function AdventureToursPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
-  const journeys = [
+  const signaturePlaces = [
     {
-      title: "Highlands Adventure",
-      subtitle: "Biking, Trekking & Exploring",
-      image: "/mountain-biking-trail.jpg",
+      title: "Adam’s Peak",
+      subtitle: "Night hike pilgrimage",
+      image: "/travelers-hiking-through-misty-mountain-landscape-.jpg",
       highlights: [
-        { icon: Bike, text: "Mountain Biking" },
-        { icon: Footprints, text: "World's End Trek" },
-        { icon: Waves, text: "River Rafting" },
+        { icon: Mountain, text: "Spiritual Climb" },
+        { icon: MapPin, text: "Sunrise Views" },
+        { icon: Users, text: "Pilgrimage" },
       ],
       description:
-        "Push your limits on mountain bike trails through tea country, trek to dramatic cliff viewpoints, and run the rapids of pristine hill country rivers. Perfect for adrenaline seekers and nature lovers alike.",
+        "A sacred mountain climb traditionally undertaken at night to witness a breathtaking sunrise and the mysterious shadow of the peak.",
     },
     {
-      title: "Full Island Explorer",
-      subtitle: "Multi-Sport Adventure Quest",
-      image: "/adventure-sports-composite.jpg",
+      title: "Knuckles Mountain Range",
+      subtitle: "Trekking & camping",
+      image: "/hikers-on-misty-forest-trail-with-guide.jpg",
       highlights: [
-        { icon: Mountain, text: "Peak Climbing" },
-        { icon: Waves, text: "Coastal Water Sports" },
-        { icon: Zap, text: "Rock Climbing" },
+        { icon: Footprints, text: "Challenging Treks" },
+        { icon: Leaf, text: "Cloud Forest" },
+        { icon: MapPin, text: "Riverston" },
       ],
       description:
-        "Combine multiple adventure disciplines across the island. Rock climb ancient formations, kiteboard in coastal lagoons, white-water raft challenging rapids, and trek remote mountain trails. A truly transformative adventure.",
+        "A rugged wilderness area of incredible biodiversity, offering some of the most challenging and rewarding trekking and camping in Sri Lanka.",
+    },
+    {
+      title: "Kitulgala",
+      subtitle: "White water rafting",
+      image: "/mountain-highlands-landscape-with-traditional-vill.jpg",
+      highlights: [
+        { icon: Waves, text: "River Rafting" },
+        { icon: Zap, text: "Adrenaline" },
+        { icon: Leaf, text: "Rainforest" },
+      ],
+      description:
+        "The adventure capital for water sports, famous for its thrilling white-water rafting on the Kelani River and beautiful rainforest setting.",
+    },
+    {
+      title: "Little Adam’s Peak",
+      subtitle: "Easy scenic hike",
+      image: "/hiking-through-sri-lanka-tea-plantations-ella-rock.jpg",
+      highlights: [
+        { icon: Footprints, text: "Easy Trek" },
+        { icon: MapPin, text: "Ella Gap" },
+        { icon: Mountain, text: "Panoramic Views" },
+      ],
+      description:
+        "An accessible yet rewarding hike in Ella that offers stunning views of the Ella Gap and the surrounding tea country landscapes.",
+    },
+    {
+      title: "Riverston",
+      subtitle: "Hidden adventure spot",
+      image: "/mountain-highlands-landscape-with-traditional-vill.jpg",
+      highlights: [
+        { icon: MapPin, text: "Mini World's End" },
+        { icon: Cloud, text: "Misty Peaks" },
+        { icon: Binoculars, text: "Waterfalls" },
+      ],
+      description:
+        "A mist-shrouded ridge in the Matale district known for its 'Mini World's End' drop and dramatic, windy mountain landscapes.",
     },
   ]
 
@@ -158,52 +197,46 @@ export default function AdventureToursPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-                Signature Adventure Expeditions
+                Signature Places
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {journeys.map((journey, index) => (
+            <div className="flex flex-wrap justify-center gap-8">
+              {signaturePlaces.map((place, index) => (
                 <Card
                   key={index}
-                  className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
                 >
-                  <div className="relative h-80 bg-muted overflow-hidden group">
+                  <div className="relative h-64 bg-muted overflow-hidden group">
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        backgroundImage: `url('${journey.image}')`,
+                        backgroundImage: `url('${place.image}')`,
                       }}
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
                   </div>
 
-                  <div className="p-8 space-y-6">
+                  <div className="p-8 space-y-6 flex-grow flex flex-col">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-                        {journey.title}
+                      <h3 className="text-2xl font-bold text-foreground leading-tight">
+                        {place.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground mt-2">{journey.subtitle}</p>
+                      <p className="text-base text-primary font-medium mt-2">{place.subtitle}</p>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4">
-                      {journey.highlights.map((highlight, i) => (
+                    <div className="grid grid-cols-3 gap-2">
+                      {place.highlights.map((highlight, i) => (
                         <div key={i} className="text-center">
-                          <highlight.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
-                          <p className="text-sm font-medium text-foreground">{highlight.text}</p>
+                          <highlight.icon className="h-7 w-7 mx-auto mb-2 text-primary/80" />
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{highlight.text}</p>
                         </div>
                       ))}
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed text-base">
-                      {journey.description}
+                    <p className="text-muted-foreground leading-relaxed text-base flex-grow">
+                      {place.description}
                     </p>
-
-                    {/* <Link href={journey.title === "Highlands Adventure" ? "/journeys/highlands-adventure" : "/journeys/full-island-explorer"}>
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-                      Explore This Journey
-                    </Button>
-                  </Link> */}
                   </div>
                 </Card>
               ))}

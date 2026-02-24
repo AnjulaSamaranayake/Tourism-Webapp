@@ -16,35 +16,73 @@ import {
   Wind,
   Heart,
   Leaf,
+  Binoculars,
+  Landmark,
 } from "lucide-react"
 
 export default function BeachToursPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
-  const journeys = [
+  const signaturePlaces = [
     {
-      title: "South Coast Serenity",
-      subtitle: "Mirissa & Tangalle",
-      image: "/beach-turquoise-waters-mirissa.jpg",
+      title: "Mirissa",
+      subtitle: "Whale watching, chill vibes",
+      image: "/coastal-fishing-village-with-boats-at-sunset.jpg",
       highlights: [
-        { icon: Waves, text: "Secluded Beaches" },
-        { icon: Turtle, text: "Turtle Conservation" },
-        { icon: UtensilsCrossed, text: "Sunset Seafood Feast" },
+        { icon: Binoculars, text: "Whale Watching" },
+        { icon: MapPin, text: "Coconut Hill" },
+        { icon: Waves, text: "Laidback Vibes" },
       ],
       description:
-        "Sink into tranquility on pristine southern beaches, snorkel in coral-rich waters, support sea turtle conservation efforts, and feast on the freshest seafood as the sun paints the ocean gold.",
+        "A tropical paradise famous for its crescent-shaped beach, whale watching excursions, and legendary sunset views at Coconut Tree Hill.",
     },
     {
-      title: "West Coast Escape",
-      subtitle: "Negombo & Beyond",
-      image: "/beach-palm-sunset.jpg",
+      title: "Arugam Bay",
+      subtitle: "Surfing capital",
+      image: "/sri-lanka-fishing-stilt-fishermen-sunset-beach-gal.jpg",
       highlights: [
-        { icon: UtensilsCrossed, text: "Fishing Village Tours" },
-        { icon: Waves, text: "Lagoon Activities" },
-        { icon: MapPin, text: "Water Sports" },
+        { icon: Waves, text: "Pro Surfing" },
+        { icon: MapPin, text: "Main Point" },
+        { icon: Wind, text: "Surf Culture" },
       ],
       description:
-        "Experience the vibrant fishing culture of Negombo, explore serene lagoons by boat, indulge in water sports, and relax in beach resorts where ocean breezes and local hospitality reign.",
+        "The ultimate destination for surfers, Arugam Bay offers world-class waves, a vibrant traveler community, and a unique moon-shaped bay.",
+    },
+    {
+      title: "Hikkaduwa",
+      subtitle: "Coral reefs, nightlife",
+      image: "/coastal-fishing-village-with-boats-at-sunset.jpg",
+      highlights: [
+        { icon: Waves, text: "Coral Reefs" },
+        { icon: Turtle, text: "Giant Turtles" },
+        { icon: Landmark, text: "Nightlife" },
+      ],
+      description:
+        "Known for its shallow-water coral reefs and giant sea turtles that visit the shore, Hikkaduwa is a vibrant hub for snorkeling and beach parties.",
+    },
+    {
+      title: "Unawatuna",
+      subtitle: "Calm swimming beach",
+      image: "/coastal-fishing-village-with-boats-at-sunset.jpg",
+      highlights: [
+        { icon: Waves, text: "Safe Swimming" },
+        { icon: MapPin, text: "Jungle Beach" },
+        { icon: Landmark, text: "Peace Pagoda" },
+      ],
+      description:
+        "A beautiful, protected bay with calm waters perfect for swimming, surrounded by cafes and the iconic Japanese Peace Pagoda.",
+    },
+    {
+      title: "Bentota",
+      subtitle: "Resorts & water sports",
+      image: "/coastal-fishing-village-with-boats-at-sunset.jpg",
+      highlights: [
+        { icon: Waves, text: "Jet Skiing" },
+        { icon: MapPin, text: "Bentota River" },
+        { icon: Heart, text: "Luxury Resorts" },
+      ],
+      description:
+        "A prime location for luxury resorts and adrenaline-pumping water sports, where the Bentota River meets the sparkling Indian Ocean.",
     },
   ]
 
@@ -158,52 +196,46 @@ export default function BeachToursPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-                Signature Beach Expeditions
+                Signature Places
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {journeys.map((journey, index) => (
+            <div className="flex flex-wrap justify-center gap-8">
+              {signaturePlaces.map((place, index) => (
                 <Card
                   key={index}
-                  className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
                 >
-                  <div className="relative h-80 bg-muted overflow-hidden group">
+                  <div className="relative h-64 bg-muted overflow-hidden group">
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        backgroundImage: `url('${journey.image}')`,
+                        backgroundImage: `url('${place.image}')`,
                       }}
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
                   </div>
 
-                  <div className="p-8 space-y-6">
+                  <div className="p-8 space-y-6 flex-grow flex flex-col">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-                        {journey.title}
+                      <h3 className="text-2xl font-bold text-foreground leading-tight">
+                        {place.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground mt-2">{journey.subtitle}</p>
+                      <p className="text-base text-primary font-medium mt-2">{place.subtitle}</p>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4">
-                      {journey.highlights.map((highlight, i) => (
+                    <div className="grid grid-cols-3 gap-2">
+                      {place.highlights.map((highlight, i) => (
                         <div key={i} className="text-center">
-                          <highlight.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
-                          <p className="text-sm font-medium text-foreground">{highlight.text}</p>
+                          <highlight.icon className="h-7 w-7 mx-auto mb-2 text-primary/80" />
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{highlight.text}</p>
                         </div>
                       ))}
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed text-base">
-                      {journey.description}
+                    <p className="text-muted-foreground leading-relaxed text-base flex-grow">
+                      {place.description}
                     </p>
-
-                    {/* <Link href={journey.title === "South Coast Serenity" ? "/journeys/south-coast-serenity" : "/journeys/west-coast-escape"}>
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-                      Explore This Journey
-                    </Button>
-                  </Link> */}
                   </div>
                 </Card>
               ))}

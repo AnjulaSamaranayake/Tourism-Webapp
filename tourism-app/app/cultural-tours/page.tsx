@@ -21,30 +21,66 @@ import {
 export default function CulturalToursPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
-  const journeys = [
+  const signaturePlaces = [
     {
-      title: "Kingdoms & Sacred Sites",
-      subtitle: "Cultural Triangle Expedition",
-      image: "/sigiriya-rock-fortress-sunrise.jpg",
+      title: "Sigiriya",
+      subtitle: "UNESCO rock fortress",
+      image: "/sigiriya-rock-fortress-sri-lanka-misty-sunrise-aer.jpg",
       highlights: [
-        { icon: Building2, text: "Ancient Cities" },
-        { icon: Landmark, text: "Temple Rituals" },
-        { icon: Palette, text: "Traditional Arts" },
+        { icon: Landmark, text: "Rock Fortress" },
+        { icon: Leaf, text: "Royal Gardens" },
+        { icon: BookOpen, text: "Ancient Mirror Wall" },
       ],
       description:
-        "Walk through the layers of Sri Lanka's ancient kingdoms, visit sacred temples where rituals continue unchanged for centuries, and witness the living traditions of Buddhist and Hindu cultures.",
+        "The iconic 'Lion Rock' is a majestic palace and fortress complex that rises 200 meters above the jungle, featuring world-famous frescoes.",
     },
     {
-      title: "Dambulla & Kandy",
-      subtitle: "Spiritual Heritage Journey",
-      image: "/dambulla-cave-temple.jpg",
+      title: "Anuradhapura",
+      subtitle: "Ancient capital ruins",
+      image: "/sri-lanka-ancient-city-anuradhapura-buddhist-stupa.jpg",
       highlights: [
-        { icon: Landmark, text: "Cave Temples" },
-        { icon: Palette, text: "Sacred Arts" },
-        { icon: Users, text: "Monastery Life" },
+        { icon: Building2, text: "Sacred Stupas" },
+        { icon: Landmark, text: "Ancient Irrigation" },
+        { icon: Heart, text: "Spiritual Roots" },
       ],
       description:
-        "Explore the sacred caves of Dambulla with intricate murals, visit the Temple of the Tooth in Kandy, and connect with Buddhist monks who share insights into spiritual practice and philosophy.",
+        "One of the longest-inhabited cities in the world, this UNESCO site was the center of Ceylon's Theravada Buddhism for centuries.",
+    },
+    {
+      title: "Polonnaruwa",
+      subtitle: "Archaeological wonders",
+      image: "/ancient-temple-with-local-historian-guide.jpg",
+      highlights: [
+        { icon: Building2, text: "Royal Palace" },
+        { icon: Landmark, text: "Rock Sculptures" },
+        { icon: BookOpen, text: "Medieval History" },
+      ],
+      description:
+        "The second capital of Sri Lanka, Polonnaruwa features incredibly preserved ruins of palaces, temples, and the magnificent Gal Vihara rock statues.",
+    },
+    {
+      title: "Temple of the Sacred Tooth Relic",
+      subtitle: "Sacred Buddhist site",
+      image: "/ancient-buddhist-temple-sri-lanka-dambulla-cave-pa.jpg",
+      highlights: [
+        { icon: Landmark, text: "Spiritual Rituals" },
+        { icon: Users, text: "Royal Heritage" },
+        { icon: Heart, text: "Living Devotion" },
+      ],
+      description:
+        "Located in Kandy, this golden-roofed temple houses Sri Lanka's most important Buddhist relic—the sacred tooth of the Buddha.",
+    },
+    {
+      title: "Dambulla Cave Temple",
+      subtitle: "Cave murals & statues",
+      image: "/ancient-buddhist-temple-sri-lanka-dambulla-cave-pa.jpg",
+      highlights: [
+        { icon: Palette, text: "Ancient Murals" },
+        { icon: Landmark, text: "Golden Temple" },
+        { icon: Leaf, text: "Cave Sanctuaries" },
+      ],
+      description:
+        "The largest and best-preserved cave temple complex in Sri Lanka, featuring over 150 Buddha statues and vivid ceiling paintings.",
     },
   ]
 
@@ -158,52 +194,46 @@ export default function CulturalToursPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-                Signature Cultural Expeditions
+                Signature Places
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {journeys.map((journey, index) => (
+            <div className="flex flex-wrap justify-center gap-8">
+              {signaturePlaces.map((place, index) => (
                 <Card
                   key={index}
-                  className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
                 >
-                  <div className="relative h-80 bg-muted overflow-hidden group">
+                  <div className="relative h-64 bg-muted overflow-hidden group">
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        backgroundImage: `url('${journey.image}')`,
+                        backgroundImage: `url('${place.image}')`,
                       }}
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
                   </div>
 
-                  <div className="p-8 space-y-6">
+                  <div className="p-8 space-y-6 flex-grow flex flex-col">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-                        {journey.title}
+                      <h3 className="text-2xl font-bold text-foreground leading-tight">
+                        {place.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground mt-2">{journey.subtitle}</p>
+                      <p className="text-base text-primary font-medium mt-2">{place.subtitle}</p>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4">
-                      {journey.highlights.map((highlight, i) => (
+                    <div className="grid grid-cols-3 gap-2">
+                      {place.highlights.map((highlight, i) => (
                         <div key={i} className="text-center">
-                          <highlight.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
-                          <p className="text-sm font-medium text-foreground">{highlight.text}</p>
+                          <highlight.icon className="h-7 w-7 mx-auto mb-2 text-primary/80" />
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{highlight.text}</p>
                         </div>
                       ))}
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed text-base">
-                      {journey.description}
+                    <p className="text-muted-foreground leading-relaxed text-base flex-grow">
+                      {place.description}
                     </p>
-
-                    {/* <Link href={journey.title === "Kingdoms & Sacred Sites" ? "/journeys/kingdoms-sacred-sites" : "/journeys/dambulla-kandy"}>
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-                      Explore This Journey
-                    </Button>
-                  </Link> */}
                   </div>
                 </Card>
               ))}

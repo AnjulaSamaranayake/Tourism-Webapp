@@ -18,30 +18,66 @@ import {
 export default function WildlifeToursPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
-  const journeys = [
+  const signaturePlaces = [
     {
-      title: "The Leopard's Trail",
-      subtitle: "Yala & Bundala",
+      title: "Yala National Park",
+      subtitle: "Best for leopard sightings",
       image: "/yala-leopard-national-park.jpg",
       highlights: [
         { icon: Binoculars, text: "Leopard Tracking" },
-        { icon: MapPin, text: "Ethical Safari Drives" },
-        { icon: Leaf, text: "Birdwatching" },
+        { icon: MapPin, text: "Safari Drives" },
+        { icon: Heart, text: "Wildlife Hub" },
       ],
       description:
-        "A focused safari experience searching for Sri Lanka's iconic leopard, complemented by rich birdlife in coastal national parks.",
+        "Sri Lanka's most famous park, home to the world's highest density of leopards and a vast array of mammals and birds.",
     },
     {
-      title: "The Elephant Gathering",
-      subtitle: "& Ancient Kingdoms",
+      title: "Udawalawe National Park",
+      subtitle: "Famous for elephants",
       image: "/minneriya-elephant-gathering.jpg",
       highlights: [
-        { icon: Users, text: "Elephant Gathering" },
-        { icon: MapPin, text: "Cultural Triangle Visit" },
-        { icon: Binoculars, text: "Sunset Safari Sessions" },
+        { icon: Users, text: "Elephant Herds" },
+        { icon: MapPin, text: "Open Plains" },
+        { icon: Leaf, text: "Conservation" },
       ],
       description:
-        "Witness one of Asia's greatest wildlife spectacles, then explore the ancient ruins where civilization and wilderness have always met.",
+        "A sanctuary for elephants, offering guaranteed sightings and a landscape reminiscent of the African savanna.",
+    },
+    {
+      title: "Bundala National Park",
+      subtitle: "Birdwatching hotspot (Ramsar wetland)",
+      image: "/jungle-scene.jpg",
+      highlights: [
+        { icon: Leaf, text: "Migratory Birds" },
+        { icon: MapPin, text: "Wetlands" },
+        { icon: Binoculars, text: "Rich Biodiversity" },
+      ],
+      description:
+        "A UNESCO Biosphere Reserve and Ramsar site, perfect for observing flamingos and thousands of migratory waterbirds.",
+    },
+    {
+      title: "Minneriya National Park",
+      subtitle: "“The Gathering” of elephants",
+      image: "/minneriya-elephant-gathering.jpg",
+      highlights: [
+        { icon: Users, text: "The Gathering" },
+        { icon: MapPin, text: "Lake Views" },
+        { icon: Binoculars, text: "Seasonal Spectacle" },
+      ],
+      description:
+        "Witness the largest seasonal gathering of wild elephants in Asia, a truly awe-inspiring natural phenomenon.",
+    },
+    {
+      title: "Wilpattu National Park",
+      subtitle: "Largest park, unique lakes",
+      image: "/jungle-scene.jpg",
+      highlights: [
+        { icon: MapPin, text: "Natural Lakes" },
+        { icon: Binoculars, text: "Unspoiled Wilderness" },
+        { icon: Leaf, text: "Endemic Flora" },
+      ],
+      description:
+        "Known for its unique 'Villu' (natural lakes), Wilpattu is the largest and oldest national park in Sri Lanka, offering a raw wilderness experience.",
     },
   ]
 
@@ -161,52 +197,46 @@ export default function WildlifeToursPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-                Signature Wildlife Expeditions
+                Signature Places
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {journeys.map((journey, index) => (
+            <div className="flex flex-wrap justify-center gap-8">
+              {signaturePlaces.map((place, index) => (
                 <Card
                   key={index}
-                  className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
                 >
-                  <div className="relative h-80 bg-muted overflow-hidden group">
+                  <div className="relative h-64 bg-muted overflow-hidden group">
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        backgroundImage: `url('${journey.image}')`,
+                        backgroundImage: `url('${place.image}')`,
                       }}
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
                   </div>
 
-                  <div className="p-8 space-y-6">
+                  <div className="p-8 space-y-6 flex-grow flex flex-col">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-                        {journey.title}
+                      <h3 className="text-2xl font-bold text-foreground leading-tight">
+                        {place.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground mt-2">{journey.subtitle}</p>
+                      <p className="text-base text-primary font-medium mt-2">{place.subtitle}</p>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4">
-                      {journey.highlights.map((highlight, i) => (
+                    <div className="grid grid-cols-3 gap-2">
+                      {place.highlights.map((highlight, i) => (
                         <div key={i} className="text-center">
-                          <highlight.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
-                          <p className="text-sm font-medium text-foreground">{highlight.text}</p>
+                          <highlight.icon className="h-7 w-7 mx-auto mb-2 text-primary/80" />
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{highlight.text}</p>
                         </div>
                       ))}
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed text-base">
-                      {journey.description}
+                    <p className="text-muted-foreground leading-relaxed text-base flex-grow">
+                      {place.description}
                     </p>
-
-                    {/* <Link href={journey.title === "The Leopard's Trail" ? "/journeys/leopards-trail" : "/journeys/elephant-gathering"}>
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-                      Explore This Journey
-                    </Button>
-                  </Link> */}
                   </div>
                 </Card>
               ))}

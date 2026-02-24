@@ -16,35 +16,73 @@ import {
   Cloud,
   Heart,
   Mountain,
+  Landmark,
+  Binoculars,
 } from "lucide-react"
 
 export default function HillCountryToursPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
-  const journeys = [
+  const signaturePlaces = [
     {
-      title: "The Tea Trails Explorer",
-      subtitle: "Nuwara Eliya & Ella",
-      image: "/tea-plantations-nuwara-eliya.jpg",
+      title: "Ella",
+      subtitle: "Scenic hikes, Nine Arch Bridge",
+      image: "/hiking-through-sri-lanka-tea-plantations-ella-rock.jpg",
       highlights: [
-        { icon: Train, text: "Scenic Train Journeys" },
-        { icon: Leaf, text: "Tea Plucking & Tasting" },
-        { icon: Footprints, text: "Waterfall Hikes" },
+        { icon: Mountain, text: "Ella Rock" },
+        { icon: MapPin, text: "Nine Arch Bridge" },
+        { icon: Footprints, text: "Scenic Hikes" },
       ],
       description:
-        "Journey through mist-shrouded tea estates on the legendary mountain railway. Walk among tea pickers, taste single-origin brews, visit colonial era factories, and trek to Ella's iconic Nine Arch Bridge.",
+        "A mountain town famous for its iconic railway bridge, dramatic peak views, and some of the most beautiful hiking trails in the country.",
     },
     {
-      title: "Horton Plains & Cloud Gardens",
-      subtitle: "Misty Mountain Adventure",
-      image: "/horton-plains-world-end.jpg",
+      title: "Nuwara Eliya",
+      subtitle: "Tea country, cool climate",
+      image: "/sri-lanka-hill-country-tea-plantations-nuwara-eliy.jpg",
       highlights: [
-        { icon: Mountain, text: "World's End Trek" },
-        { icon: Cloud, text: "Cloud Walks" },
-        { icon: Leaf, text: "Endemic Wildlife" },
+        { icon: Leaf, text: "Tea Estates" },
+        { icon: Cloud, text: "Cool Climate" },
+        { icon: Train, text: "Heritage Rail" },
       ],
       description:
-        "Hike through ethereal mist to World's End, where views stretch 2,000 meters below. Explore pristine cloud forests, encounter endemic birds, and feel the solitude of Sri Lanka's highest plateaus.",
+        "Known as 'Little England', this highland retreat offers mist-covered tea plantations, colonial architecture, and refreshing mountain air.",
+    },
+    {
+      title: "Haputale",
+      subtitle: "Stunning viewpoints (Lipton’s Seat)",
+      image: "/mountain-highlands-landscape-with-traditional-vill.jpg",
+      highlights: [
+        { icon: Cloud, text: "Misty Ridges" },
+        { icon: MapPin, text: "Lipton's Seat" },
+        { icon: Mountain, text: "Stunning Views" },
+      ],
+      description:
+        "Perched on the edge of the highlands, Haputale offers breathtaking views that stretch to the south coast on clear days.",
+    },
+    {
+      title: "Kandy",
+      subtitle: "Cultural + hill country gateway",
+      image: "/ancient-temple-with-local-historian-guide.jpg",
+      highlights: [
+        { icon: Landmark, text: "Spiritual Hub" },
+        { icon: Users, text: "Living Heritage" },
+        { icon: Mountain, text: "Gateway Town" },
+      ],
+      description:
+        "The sacred city by the lake, Kandy is the cultural capital of Sri Lanka and the gateway to the breathtaking hill country.",
+    },
+    {
+      title: "Horton Plains National Park",
+      subtitle: "World’s End trek",
+      image: "/travelers-hiking-through-misty-mountain-landscape-.jpg",
+      highlights: [
+        { icon: Footprints, text: "World's End" },
+        { icon: Leaf, text: "Cloud Forest" },
+        { icon: Binoculars, text: "Endemic Birds" },
+      ],
+      description:
+        "A high-altitude plateau of surreal beauty, featuring the dramatic World's End cliff and unique cloud forest ecosystems.",
     },
   ]
 
@@ -158,52 +196,46 @@ export default function HillCountryToursPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-                Signature Hill Country Expeditions
+                Signature Places
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {journeys.map((journey, index) => (
+            <div className="flex flex-wrap justify-center gap-8">
+              {signaturePlaces.map((place, index) => (
                 <Card
                   key={index}
-                  className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
                 >
-                  <div className="relative h-80 bg-muted overflow-hidden group">
+                  <div className="relative h-64 bg-muted overflow-hidden group">
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        backgroundImage: `url('${journey.image}')`,
+                        backgroundImage: `url('${place.image}')`,
                       }}
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
                   </div>
 
-                  <div className="p-8 space-y-6">
+                  <div className="p-8 space-y-6 flex-grow flex flex-col">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-                        {journey.title}
+                      <h3 className="text-2xl font-bold text-foreground leading-tight">
+                        {place.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground mt-2">{journey.subtitle}</p>
+                      <p className="text-base text-primary font-medium mt-2">{place.subtitle}</p>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4">
-                      {journey.highlights.map((highlight, i) => (
+                    <div className="grid grid-cols-3 gap-2">
+                      {place.highlights.map((highlight, i) => (
                         <div key={i} className="text-center">
-                          <highlight.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
-                          <p className="text-sm font-medium text-foreground">{highlight.text}</p>
+                          <highlight.icon className="h-7 w-7 mx-auto mb-2 text-primary/80" />
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{highlight.text}</p>
                         </div>
                       ))}
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed text-base">
-                      {journey.description}
+                    <p className="text-muted-foreground leading-relaxed text-base flex-grow">
+                      {place.description}
                     </p>
-
-                    {/* <Link href={journey.title === "The Tea Trails Explorer" ? "/journeys/tea-trails-explorer" : "/journeys/horton-plains"}>
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-                      Explore This Journey
-                    </Button>
-                  </Link> */}
                   </div>
                 </Card>
               ))}
