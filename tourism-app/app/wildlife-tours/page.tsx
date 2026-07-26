@@ -23,7 +23,7 @@ export default function WildlifeToursPage() {
       title: "Yala National Park",
       slug: "yala-national-park",
       subtitle: "Best for leopard sightings",
-      image: "/yala-leopard-national-park.jpg",
+      image: "/wildlife/yala_national.png",
       highlights: [
         { icon: Binoculars, text: "Leopard Tracking" },
         { icon: MapPin, text: "Safari Drives" },
@@ -36,7 +36,7 @@ export default function WildlifeToursPage() {
       title: "Udawalawe National Park",
       slug: "udawalawe-national-park",
       subtitle: "Famous for elephants",
-      image: "/minneriya-elephant-gathering.jpg",
+      image: "/wildlife/Udawalaw national park.png",
       highlights: [
         { icon: Users, text: "Elephant Herds" },
         { icon: MapPin, text: "Open Plains" },
@@ -49,7 +49,7 @@ export default function WildlifeToursPage() {
       title: "Bundala National Park",
       slug: "bundala-national-park",
       subtitle: "Birdwatching hotspot (Ramsar wetland)",
-      image: "/jungle-scene.jpg",
+      image: "/wildlife/bundala_national.png",
       highlights: [
         { icon: Leaf, text: "Migratory Birds" },
         { icon: MapPin, text: "Wetlands" },
@@ -62,7 +62,7 @@ export default function WildlifeToursPage() {
       title: "Minneriya National Park",
       slug: "minneriya-national-park",
       subtitle: "“The Gathering” of elephants",
-      image: "/minneriya-elephant-gathering.jpg",
+      image: "/wildlife/minneriya_national.png",
       highlights: [
         { icon: Users, text: "The Gathering" },
         { icon: MapPin, text: "Lake Views" },

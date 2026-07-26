@@ -45,22 +45,16 @@ export default function CulturalDetailPage() {
             <Navigation />
             <main className="min-h-screen bg-background">
                 {/* Hero Section */}
-                <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-                    <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 scale-105"
-                        style={{ backgroundImage: `url('${place.image}')` }}
-                    />
-                    <div className="absolute inset-0 bg-black/50" />
-
-                    <div className="relative z-10 text-center text-white px-4 max-w-4xl">
-                        <Link href="/cultural-tours" className="inline-flex items-center text-sm font-medium mb-6 hover:text-primary transition-colors">
+                <section className="relative pt-32 pb-20 flex items-center justify-center overflow-hidden bg-primary text-primary-foreground">
+                    <div className="relative z-10 text-center px-4 max-w-4xl">
+                        <Link href="/cultural-tours" className="inline-flex items-center text-sm font-medium mb-6 hover:opacity-80 transition-opacity">
                             <ChevronLeft className="h-4 w-4 mr-1" />
                             Back to Cultural Tours
                         </Link>
                         <h1 className="text-5xl sm:text-7xl font-bold mb-4 tracking-tight">
                             {place.title}
                         </h1>
-                        <p className="text-xl sm:text-2xl text-gray-200 font-medium italic">
+                        <p className="text-xl sm:text-2xl opacity-90 font-medium italic">
                             {place.subtitle}
                         </p>
                     </div>
@@ -104,23 +98,7 @@ export default function CulturalDetailPage() {
                     </div>
                 </section>
 
-                {/* Gallery Section */}
-                <section className="py-20 bg-muted">
-                    <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold mb-12 text-center">Living History</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                            {place.gallery.map((img, index) => (
-                                <div key={index} className="relative h-72 rounded-xl overflow-hidden group cursor-pointer shadow-md">
-                                    <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                                        style={{ backgroundImage: `url('${img}')` }}
-                                    />
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300" />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+
 
                 {/* Key Information Section */}
                 <section className="py-20 bg-background">
