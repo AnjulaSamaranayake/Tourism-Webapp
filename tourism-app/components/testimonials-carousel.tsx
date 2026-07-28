@@ -2,30 +2,31 @@
 
 import { useEffect, useState, useCallback } from "react"
 import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import Link from "next/link"
+import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 
-interface GalleryImage {
-  imageUrl: string
-  guestName: string
+interface Testimonial {
+  fullName: string
   country: string
+  tour: string
+  rating: number
+  story: string
 }
 
-interface GalleryCarouselProps {
-  images: GalleryImage[]
+interface TestimonialsCarouselProps {
+  testimonials: Testimonial[]
 }
 
 const ITEMS_PER_SLIDE = 3
-const AUTO_PLAY_INTERVAL = 4000
+const AUTO_PLAY_INTERVAL = 4500
 
-export function GalleryCarousel({ images }: GalleryCarouselProps) {
-  const totalSlides = Math.ceil(images.length / ITEMS_PER_SLIDE)
+export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
+  const totalSlides = Math.ceil(testimonials.length / ITEMS_PER_SLIDE)
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isHovered, setIsHovered] = useState(false)
+  const [paused, setPaused] = useState(false)
 
-  const slides: GalleryImage[][] = Array.from({ length: totalSlides }, (_, i) =>
-    images.slice(i * ITEMS_PER_SLIDE, i * ITEMS_PER_SLIDE + ITEMS_PER_SLIDE)
+  // Chunk testimonials into groups of 3
+  const slides: Testimonial[][] = Array.from({ length: totalSlides }, (_, i) =>
+    testimonials.slice(i * ITEMS_PER_SLIDE, i * ITEMS_PER_SLIDE + ITEMS_PER_SLIDE)
   )
 
   const goToSlide = useCallback(
@@ -39,19 +40,15 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
   const prev = useCallback(() => goToSlide(currentSlide - 1), [currentSlide, goToSlide])
 
   useEffect(() => {
-    if (isHovered || totalSlides <= 1) return
+    if (paused || totalSlides <= 1) return
     const timer = setInterval(next, AUTO_PLAY_INTERVAL)
     return () => clearInterval(timer)
-  }, [isHovered, next, totalSlides])
+  }, [paused, next, totalSlides])
 
   return (
     <div>
       {/* Sliding strip */}
-      <div
-        className="overflow-hidden rounded-xl mb-8"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <div className="overflow-hidden rounded-xl mb-10">
         <div
           className="flex"
           style={{
@@ -65,24 +62,37 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
               key={slideIndex}
               className="w-full flex-none grid grid-cols-1 md:grid-cols-3 gap-6 px-1"
             >
-              {slideItems.map((item, index) => (
+              {slideItems.map((testimonial, itemIndex) => (
                 <Card
-                  key={index}
-                  className="overflow-hidden border-none shadow-lg hover:shadow-2xl transition-shadow duration-300 group cursor-pointer"
+                  key={itemIndex}
+                  className="p-8 border-border shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-default select-none"
+                  onMouseEnter={() => setPaused(true)}
+                  onMouseLeave={() => setPaused(false)}
                 >
-                  <div className="relative bg-muted overflow-hidden aspect-square">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                      style={{ backgroundImage: `url('${item.imageUrl}')` }}
-                    />
-                    {/* Subtle bottom gradient for text only */}
-                    <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-black/60 to-transparent" />
+                  {/* Stars */}
+                  <div className="flex gap-0.5 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`h-5 w-5 transition-colors ${
+                          i < (testimonial.rating ?? 5)
+                            ? "fill-accent text-accent"
+                            : "text-muted-foreground/30"
+                        }`}
+                      />
+                    ))}
+                  </div>
 
-                    {/* Guest Info Overlay */}
-                    <div className="absolute bottom-0 inset-x-0 flex flex-col p-5 text-white">
-                      <h3 className="text-base font-bold drop-shadow">{item.guestName}</h3>
-                      <p className="text-xs text-gray-200">{item.country}</p>
-                    </div>
+                  <blockquote className="text-foreground leading-relaxed mb-6 italic">
+                    "{testimonial.story}"
+                  </blockquote>
+
+                  <div className="border-t border-border pt-4">
+                    <p className="font-semibold text-foreground">{testimonial.fullName}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.country}</p>
+                    {testimonial.tour && (
+                      <p className="text-sm text-primary mt-1">'{testimonial.tour}' Journey</p>
+                    )}
                   </div>
                 </Card>
               ))}
@@ -93,7 +103,7 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
 
       {/* Controls */}
       {totalSlides > 1 && (
-        <div className="flex items-center justify-center gap-5 mb-10">
+        <div className="flex items-center justify-center gap-5">
           <button
             onClick={prev}
             aria-label="Previous"
@@ -102,6 +112,7 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
             <ChevronLeft className="w-5 h-5 text-foreground" />
           </button>
 
+          {/* Dot indicators */}
           <div className="flex items-center gap-2">
             {slides.map((_, i) => (
               <button
@@ -126,18 +137,6 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
           </button>
         </div>
       )}
-
-      {/* Load More Button */}
-      <div className="text-center mb-16">
-        <Link href="/gallery">
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
-          >
-            Load More Memories
-          </Button>
-        </Link>
-      </div>
     </div>
   )
 }
