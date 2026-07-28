@@ -66,7 +66,7 @@ export function Footer() {
 
         <div className="border-t border-background/20 mt-12 pt-8 text-center text-sm text-background/60">
           <p>&copy; 2026 Immersive Journeys. All rights reserved. Crafted with care for discerning travelers.</p>
-          <p>Developed by Soultris.ai</p>
+          <p>Developed by <a href="https://soultris.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">Soultris</a></p>
         </div>
       </div>
     </footer>

@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Card } from '@/components/ui/card'
 import { Star, Camera, Globe, Compass, Heart, MapPin, Plane } from 'lucide-react'
+import { submitTestimonial } from '@/app/actions/submit-testimonial'
 
 const tours = [
   'Wildlife Tour',
@@ -33,6 +34,8 @@ export default function ShareYourStory() {
 
   const [hoverRating, setHoverRating] = useState(0)
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
@@ -58,24 +61,40 @@ export default function ShareYourStory() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({
-        fullName: '',
-        country: '',
-        tour: '',
-        travelDate: '',
-        rating: 0,
-        story: '',
-        photo: null,
-        permission: false
-      })
-    }, 3000)
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    const result = await submitTestimonial({
+      fullName: formData.fullName,
+      country: formData.country,
+      tour: formData.tour,
+      travelDate: formData.travelDate,
+      rating: formData.rating,
+      story: formData.story,
+    })
+
+    setIsSubmitting(false)
+
+    if (result.success) {
+      setSubmitted(true)
+      setTimeout(() => {
+        setSubmitted(false)
+        setFormData({
+          fullName: '',
+          country: '',
+          tour: '',
+          travelDate: '',
+          rating: 0,
+          story: '',
+          photo: null,
+          permission: false
+        })
+      }, 4000)
+    } else {
+      setSubmitError(result.error || 'Something went wrong. Please try again.')
+    }
   }
 
   return (
@@ -140,8 +159,14 @@ export default function ShareYourStory() {
             {submitted && (
               <Card className="mb-8 p-6 bg-green-50 border-green-200">
                 <p className="text-green-800 font-semibold text-center">
-                  ✓ Thank you for sharing your story! We'll review it soon and feature it on our site.
+                  ✓ Thank you for sharing your story! We'll review it and feature it on our site soon.
                 </p>
+              </Card>
+            )}
+
+            {submitError && (
+              <Card className="mb-8 p-6 bg-red-50 border-red-200">
+                <p className="text-red-700 font-semibold text-center">✗ {submitError}</p>
               </Card>
             )}
 
@@ -283,9 +308,10 @@ export default function ShareYourStory() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold py-6"
+                  disabled={isSubmitting}
+                  className="w-full bg-primary text-primary-foreground text-base font-semibold py-6 disabled:opacity-70"
                 >
-                  Submit Your Story
+                  {isSubmitting ? 'Submitting...' : 'Submit Your Story'}
                 </Button>
               </form>
             </Card>
