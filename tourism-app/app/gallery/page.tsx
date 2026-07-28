@@ -47,14 +47,13 @@ export default async function GalleryPage() {
                       backgroundImage: `url('${item.image ? urlForImage(item.image).width(800).height(800).url() : ''}')`,
                     }}
                   />
-                  <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300" />
+                  {/* Subtle bottom gradient for text only */}
+                  <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-black/60 to-transparent" />
 
                   {/* Guest Info Overlay */}
-                  <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
-                    <div>
-                      <h3 className="text-lg font-bold">{item.guestName}</h3>
-                      <p className="text-sm text-gray-200">{item.country}</p>
-                    </div>
+                  <div className="absolute bottom-0 inset-x-0 flex flex-col p-5 text-white">
+                    <h3 className="text-base font-bold drop-shadow">{item.guestName}</h3>
+                    <p className="text-xs text-gray-200">{item.country}</p>
                   </div>
                 </div>
               </Card>

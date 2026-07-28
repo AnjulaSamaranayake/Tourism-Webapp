@@ -1,9 +1,7 @@
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Footprints, Building2, UtensilsCrossed, Heart, Camera, Globe, Star } from "lucide-react"
 import Link from "next/link"
 import { client } from "@/sanity/lib/client"
 import { urlForImage } from "@/sanity/lib/image"
+import { GalleryCarousel } from "@/components/gallery-carousel"
 
 export async function JourneysGallery() {
   const query = `*[_type == "galleryImage"]{
@@ -12,6 +10,12 @@ export async function JourneysGallery() {
     country
   }`
   const galleryImages: any[] = await client.fetch(query)
+
+  const images = galleryImages.map((item) => ({
+    imageUrl: item.image ? urlForImage(item.image).width(800).height(800).url() : "",
+    guestName: item.guestName ?? "",
+    country: item.country ?? "",
+  }))
 
   return (
     <section id="tour-memories" className="py-24 bg-background">
@@ -26,48 +30,8 @@ export async function JourneysGallery() {
           </p>
         </div>
 
-
-
-        {/* Masonry Gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 auto-rows-max">
-          {galleryImages.slice(0, 6).map((item, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer"
-            >
-              <div className="relative bg-muted overflow-hidden aspect-square">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                  style={{
-                    backgroundImage: `url('${item.image ? urlForImage(item.image).width(800).height(800).url() : ''}')`,
-                  }}
-                />
-                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300" />
-
-                {/* Guest Info Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
-                  <div>
-                    <h3 className="text-lg font-bold">{item.guestName}</h3>
-                    <p className="text-sm text-gray-200">{item.country}</p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
-
-        {/* Load More Button */}
-        <div className="text-center mb-16">
-          <Link href="/gallery">
-            <Button
-              variant="outline"
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
-            >
-              Load More Memories
-            </Button>
-          </Link>
-        </div>
+        {/* Auto-playing Carousel — 3 images per slide */}
+        <GalleryCarousel images={images} />
 
         {/* CTA Section */}
         <div className="text-center max-w-2xl mx-auto">
@@ -75,12 +39,9 @@ export async function JourneysGallery() {
             Ready to create your own unforgettable memories?
           </h3>
           <Link href="/contact">
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
-            >
+            <button className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 rounded-md font-semibold transition-colors duration-200">
               Start Planning Your Journey
-            </Button>
+            </button>
           </Link>
         </div>
       </div>
