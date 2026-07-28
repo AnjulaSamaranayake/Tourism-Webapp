@@ -22,7 +22,7 @@ const AUTO_PLAY_INTERVAL = 4000
 export function GalleryCarousel({ images }: GalleryCarouselProps) {
   const totalSlides = Math.ceil(images.length / ITEMS_PER_SLIDE)
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isHovered, setIsHovered] = useState(false)
+  const [paused, setPaused] = useState(false)
 
   const slides: GalleryImage[][] = Array.from({ length: totalSlides }, (_, i) =>
     images.slice(i * ITEMS_PER_SLIDE, i * ITEMS_PER_SLIDE + ITEMS_PER_SLIDE)
@@ -39,19 +39,15 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
   const prev = useCallback(() => goToSlide(currentSlide - 1), [currentSlide, goToSlide])
 
   useEffect(() => {
-    if (isHovered || totalSlides <= 1) return
+    if (paused || totalSlides <= 1) return
     const timer = setInterval(next, AUTO_PLAY_INTERVAL)
     return () => clearInterval(timer)
-  }, [isHovered, next, totalSlides])
+  }, [paused, next, totalSlides])
 
   return (
     <div>
       {/* Sliding strip */}
-      <div
-        className="overflow-hidden rounded-xl mb-8"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <div className="overflow-hidden rounded-xl mb-10">
         <div
           className="flex"
           style={{
@@ -69,6 +65,8 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
                 <Card
                   key={index}
                   className="overflow-hidden border-none shadow-lg hover:shadow-2xl transition-shadow duration-300 group cursor-pointer"
+                  onMouseEnter={() => setPaused(true)}
+                  onMouseLeave={() => setPaused(false)}
                 >
                   <div className="relative bg-muted overflow-hidden aspect-square">
                     <div
@@ -93,7 +91,7 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
 
       {/* Controls */}
       {totalSlides > 1 && (
-        <div className="flex items-center justify-center gap-5 mb-10">
+        <div className="flex items-center justify-center gap-5">
           <button
             onClick={prev}
             aria-label="Previous"
@@ -108,11 +106,10 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
                 key={i}
                 onClick={() => goToSlide(i)}
                 aria-label={`Go to slide ${i + 1}`}
-                className={`rounded-full transition-all duration-500 ${
-                  i === currentSlide
-                    ? "w-7 h-2.5 bg-primary"
-                    : "w-2.5 h-2.5 bg-muted-foreground/35 hover:bg-muted-foreground/60"
-                }`}
+                className={`rounded-full transition-all duration-500 ${i === currentSlide
+                  ? "w-7 h-2.5 bg-primary"
+                  : "w-2.5 h-2.5 bg-muted-foreground/35 hover:bg-muted-foreground/60"
+                  }`}
               />
             ))}
           </div>
@@ -128,11 +125,11 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
       )}
 
       {/* Load More Button */}
-      <div className="text-center mb-16">
+      <div className="text-center mb-16 mt-5">
         <Link href="/gallery">
           <Button
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+            className="bg-primary text-primary-foreground text-lg px-10 py-8"
           >
             Load More Memories
           </Button>

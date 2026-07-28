@@ -39,7 +39,7 @@ export async function JourneysGallery() {
             Ready to create your own unforgettable memories?
           </h3>
           <Link href="/contact">
-            <button className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 rounded-md font-semibold transition-colors duration-200">
+            <button className="bg-primary text-primary-foreground text-lg px-8 py-6 rounded-md font-semibold transition-colors duration-200">
               Start Planning Your Journey
             </button>
           </Link>

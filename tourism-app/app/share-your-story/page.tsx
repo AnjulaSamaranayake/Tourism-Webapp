@@ -309,7 +309,7 @@ export default function ShareYourStory() {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold py-6 disabled:opacity-70"
+                  className="w-full bg-primary text-primary-foreground text-base font-semibold py-6 disabled:opacity-70"
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit Your Story'}
                 </Button>
