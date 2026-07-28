@@ -333,7 +333,7 @@ export default function CulturalToursPage() {
             <Link href="/contact">
               <Button
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+                className="bg-primary text-primary-foreground text-lg px-8 py-6"
               >
                 Start to Plan Your Cultural Journey
               </Button>

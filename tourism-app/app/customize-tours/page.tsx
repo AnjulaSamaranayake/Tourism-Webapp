@@ -309,7 +309,7 @@ export default function CustomizeToursPage() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                    className="w-full bg-primary text-primary-foreground"
                   >
                     Schedule Consultation
                   </Button>
@@ -387,7 +387,7 @@ export default function CustomizeToursPage() {
             </p>
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+              className="bg-primary text-primary-foreground text-lg px-8 py-6"
               onClick={() =>
                 document.getElementById("consultation-form")?.scrollIntoView({ behavior: "smooth" })
               }

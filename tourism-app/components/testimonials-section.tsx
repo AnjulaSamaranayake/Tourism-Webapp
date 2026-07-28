@@ -1,30 +1,71 @@
-import { Card } from "@/components/ui/card"
-import { Star } from "lucide-react"
+import { createClient } from "next-sanity"
+import { apiVersion, dataset, projectId } from "@/sanity/env"
+import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 
-export function TestimonialsSection() {
-  const testimonials = [
-    {
-      quote:
-        "The combination was incredible—one day we were foraging for herbs with a chef, the next we were on a silent hike at dawn learning about local ecology from our guide. This trip engaged all our senses.",
-      author: "Alex R.",
-      location: "Canada",
-      journey: "Coastal Immersion",
-    },
-    {
-      quote:
-        "Not just another tour. We ate at family tables, walked ancient paths with historians, and understood the land in a way we never could have alone. Truly transformative.",
-      author: "Maria & James K.",
-      location: "United Kingdom",
-      journey: "Highlands Expedition",
-    },
-    {
-      quote:
-        "Every detail was thoughtful. The way food, adventure, and culture wove together felt seamless. We came home changed, with stories we'll treasure forever.",
-      author: "David L.",
-      location: "Australia",
-      journey: "Valley of Artisans",
-    },
-  ]
+const fallbackTestimonials = [
+  {
+    story:
+      "The combination was incredible—one day we were foraging for herbs with a chef, the next we were on a silent hike at dawn learning about local ecology from our guide. This trip engaged all our senses.",
+    fullName: "Alex R.",
+    country: "Canada",
+    tour: "Coastal Immersion",
+    rating: 5,
+  },
+  {
+    story:
+      "Not just another tour. We ate at family tables, walked ancient paths with historians, and understood the land in a way we never could have alone. Truly transformative.",
+    fullName: "Maria & James K.",
+    country: "United Kingdom",
+    tour: "Highlands Expedition",
+    rating: 5,
+  },
+  {
+    story:
+      "Every detail was thoughtful. The way food, adventure, and culture wove together felt seamless. We came home changed, with stories we'll treasure forever.",
+    fullName: "David L.",
+    country: "Australia",
+    tour: "Valley of Artisans",
+    rating: 5,
+  },
+]
+
+interface SanityTestimonial {
+  fullName: string
+  country: string
+  tour: string
+  rating: number
+  story: string
+}
+
+export async function TestimonialsSection() {
+  const query = `*[_type == "testimonial"] | order(_createdAt desc) {
+    fullName,
+    country,
+    tour,
+    rating,
+    story
+  }`
+
+  // Use a non-CDN client with no-store so published testimonials appear immediately
+  const freshClient = createClient({
+    projectId,
+    dataset,
+    apiVersion,
+    useCdn: false,
+  })
+
+  let testimonials: SanityTestimonial[] = []
+
+  try {
+    const fetched: SanityTestimonial[] = await freshClient.fetch(
+      query,
+      {},
+      { cache: 'no-store' }
+    )
+    testimonials = fetched.length > 0 ? fetched : fallbackTestimonials
+  } catch {
+    testimonials = fallbackTestimonials
+  }
 
   return (
     <section className="py-24 bg-background">
@@ -35,23 +76,7 @@ export function TestimonialsSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="p-8 border-border shadow-sm">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-accent text-accent" />
-                ))}
-              </div>
-              <blockquote className="text-foreground leading-relaxed mb-6 italic">"{testimonial.quote}"</blockquote>
-              <div className="border-t border-border pt-4">
-                <p className="font-semibold text-foreground">{testimonial.author}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                <p className="text-sm text-primary mt-1">'{testimonial.journey}' Journey</p>
-              </div>
-            </Card>
-          ))}
-        </div>
+        <TestimonialsCarousel testimonials={testimonials} />
       </div>
     </section>
   )
