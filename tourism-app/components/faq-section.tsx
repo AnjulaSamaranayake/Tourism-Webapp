@@ -125,7 +125,7 @@ export function FAQSection() {
               </p>
               <Button
                 asChild
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="bg-primary text-primary-foreground"
               >
                 <a href="/contact">Go to Contact Page</a>
               </Button>
