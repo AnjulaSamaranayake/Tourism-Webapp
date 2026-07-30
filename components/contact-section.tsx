@@ -116,7 +116,7 @@ export function ContactSection() {
             <Button
               type="submit"
               size="lg"
-              className="w-full bg-accent text-foreground hover:bg-secondary hover:text-secondary-foreground transition-colors text-lg py-6"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg font-semibold transition-colors text-lg py-6"
             >
               Schedule Consultation
             </Button>

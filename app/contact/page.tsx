@@ -502,7 +502,7 @@ export default function ContactPage() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary hover:bg-primary/60 rounded-xl"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg font-semibold transition-colors"
                   disabled={isSubmitting || submitStatus === "success"}
                 >
                   {isSubmitting ? (

@@ -244,7 +244,7 @@ export default function WildlifeToursPage() {
                     </p>
 
                     <Link href={`/wildlife/${place.slug}`} className="mt-4">
-                      <Button variant="outline" className="w-full border-primary/20 hover:border-primary hover:bg-primary/5">
+                      <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg font-semibold transition-colors">
                         More Info
                       </Button>
                     </Link>

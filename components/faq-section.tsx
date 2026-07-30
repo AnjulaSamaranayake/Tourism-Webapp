@@ -51,7 +51,7 @@ export function FAQSection() {
   ]
 
   return (
-    <section className="py-24 from-background via-primary/5 to-background">
+    <section id="faq" className="py-24 from-background via-primary/5 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -125,7 +125,8 @@ export function FAQSection() {
               </p>
               <Button
                 asChild
-                className="bg-primary text-primary-foreground"
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg font-semibold transition-colors"
               >
                 <a href="/contact">Go to Contact Page</a>
               </Button>

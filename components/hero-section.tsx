@@ -10,7 +10,7 @@ export function HeroSection() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-[1.35] lg:scale-[1.2] origin-center"
         >
           <source src="/tourism_vid%20-%20Trim01.mp4" type="video/mp4" />
           Your browser does not support the video tag.

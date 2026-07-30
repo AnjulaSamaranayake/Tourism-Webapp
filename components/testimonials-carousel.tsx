@@ -16,18 +16,39 @@ interface TestimonialsCarouselProps {
   testimonials: Testimonial[]
 }
 
-const ITEMS_PER_SLIDE = 3
 const AUTO_PLAY_INTERVAL = 4500
 
+function useItemsPerSlide() {
+  const [items, setItems] = useState(3)
+
+  useEffect(() => {
+    function update() {
+      setItems(window.innerWidth < 768 ? 1 : 3)
+    }
+    update()
+    window.addEventListener("resize", update)
+    return () => window.removeEventListener("resize", update)
+  }, [])
+
+  return items
+}
+
 export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
-  const totalSlides = Math.ceil(testimonials.length / ITEMS_PER_SLIDE)
+  const itemsPerSlide = useItemsPerSlide()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [paused, setPaused] = useState(false)
 
-  // Chunk testimonials into groups of 3
+  const totalSlides = Math.ceil(testimonials.length / itemsPerSlide)
+
+  // Chunk testimonials into groups
   const slides: Testimonial[][] = Array.from({ length: totalSlides }, (_, i) =>
-    testimonials.slice(i * ITEMS_PER_SLIDE, i * ITEMS_PER_SLIDE + ITEMS_PER_SLIDE)
+    testimonials.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide)
   )
+
+  // Reset to first slide when layout changes
+  useEffect(() => {
+    setCurrentSlide(0)
+  }, [itemsPerSlide])
 
   const goToSlide = useCallback(
     (index: number) => {
