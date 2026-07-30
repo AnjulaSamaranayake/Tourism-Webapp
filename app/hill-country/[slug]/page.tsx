@@ -160,7 +160,7 @@ export default function HillCountryDetailPage() {
                             Escape to the cool, mist-covered mountains of the hill country. Whether you want to trek the peaks or sip tea in a colonial bungalow, we'll craft your perfect highland story.
                         </p>
                         <Link href="/contact">
-                            <Button size="lg" variant="secondary" className="rounded-full text-lg px-12 py-8 bg-white text-primary hover:bg-white/90">
+                            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg font-semibold transition-colors text-lg px-12 py-8">
                                 Plan This Tour
                             </Button>
                         </Link>

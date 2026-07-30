@@ -160,7 +160,7 @@ export default function AdventureDetailPage() {
                             Our adventure specialists provide world-class equipment and certified guides to ensure your safety while you conquer Sri Lanka's wildest terrains.
                         </p>
                         <Link href="/contact">
-                            <Button size="lg" variant="secondary" className="rounded-full text-lg px-12 py-8 bg-white text-primary hover:bg-white/90">
+                            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg font-semibold transition-colors text-lg px-12 py-8">
                                 Plan This Adventure
                             </Button>
                         </Link>

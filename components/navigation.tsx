@@ -65,7 +65,7 @@ export function Navigation() {
               Contact
             </a>
 
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-secondary rounded-full transition-colors">
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg font-semibold transition-colors">
               <a href="/contact">
               Book Consultation
               </a>
@@ -134,7 +134,7 @@ export function Navigation() {
             </a>
             <Button
               size="lg"
-              className="w-full bg-primary text-primary-foreground hover:bg-secondary transition-colors"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg font-semibold transition-colors"
             >
               Book Consultation
             </Button>

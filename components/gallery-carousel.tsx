@@ -16,17 +16,38 @@ interface GalleryCarouselProps {
   images: GalleryImage[]
 }
 
-const ITEMS_PER_SLIDE = 3
 const AUTO_PLAY_INTERVAL = 4000
 
+function useItemsPerSlide() {
+  const [items, setItems] = useState(3)
+
+  useEffect(() => {
+    function update() {
+      setItems(window.innerWidth < 768 ? 1 : 3)
+    }
+    update()
+    window.addEventListener("resize", update)
+    return () => window.removeEventListener("resize", update)
+  }, [])
+
+  return items
+}
+
 export function GalleryCarousel({ images }: GalleryCarouselProps) {
-  const totalSlides = Math.ceil(images.length / ITEMS_PER_SLIDE)
+  const itemsPerSlide = useItemsPerSlide()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [paused, setPaused] = useState(false)
 
+  const totalSlides = Math.ceil(images.length / itemsPerSlide)
+
   const slides: GalleryImage[][] = Array.from({ length: totalSlides }, (_, i) =>
-    images.slice(i * ITEMS_PER_SLIDE, i * ITEMS_PER_SLIDE + ITEMS_PER_SLIDE)
+    images.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide)
   )
+
+  // Reset to first slide when layout changes
+  useEffect(() => {
+    setCurrentSlide(0)
+  }, [itemsPerSlide])
 
   const goToSlide = useCallback(
     (index: number) => {
@@ -129,7 +150,7 @@ export function GalleryCarousel({ images }: GalleryCarouselProps) {
         <Link href="/gallery">
           <Button
             size="lg"
-            className="bg-primary text-primary-foreground text-lg px-10 py-8"
+            className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg font-semibold transition-colors text-lg px-10 py-8"
           >
             Load More Memories
           </Button>
