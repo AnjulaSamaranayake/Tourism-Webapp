@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
+import { BackgroundAnimation } from '@/components/background-animation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -98,7 +99,8 @@ export default function ShareYourStory() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-transparent relative">
+      <BackgroundAnimation />
       <Navigation />
       
       {/* Hero Section */}

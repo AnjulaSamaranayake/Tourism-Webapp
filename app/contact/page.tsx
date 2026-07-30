@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Mail, Phone, MessageSquare, Send, MapPin, Clock, Instagram, Facebook ,MessageCircle,  Star, CheckCircle, Compass, Leaf, Zap, Sparkles, Globe, Heart, Camera, Plane, Footprints, Mountain } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { BackgroundAnimation } from "@/components/background-animation"
 
 const WaveSeparator = () => (
   <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
@@ -161,7 +162,8 @@ export default function ContactPage() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-background pt-24">
+      <main className="min-h-screen bg-transparent relative pt-24">
+        <BackgroundAnimation />
         {/* Hero Section */}
         <section className="relative from-primary/20 via-background to-secondary/20 py-16 md:py-32 overflow-hidden">
           {/* Decorative Elements */}
